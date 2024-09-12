@@ -9,9 +9,9 @@
         mc:Ignorable="d"
         Title="MainView" Height="600" Width="800" Name="win"
         Icon="/Resources/drole.ico">
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <viewmodels:MainViewModel/>
-    </Window.DataContext>
+    </Window.DataContext>-->
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewmodels:AccueilViewModel}">
@@ -22,18 +22,7 @@
         </DataTemplate>
     </Window.Resources>
 
-    <Grid>
-        <!--<Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <Menu Width="{Binding ElementName=win, Path=Width}">
-            <MenuItem Header="Accueil" Command="{Binding GoToAccueilCmd}"/>
-            <MenuItem Header="Personnes" Command="{Binding GoToPersonneCmd}"/>
-        </Menu>
-
-        <ContentControl Grid.Row="1" Content="{Binding ViewModelActuel}" />-->
+    <Grid>s
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>

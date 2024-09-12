@@ -9,53 +9,16 @@ using static test.ViewModels.Delegates.ViewModelDelegates;
 
 namespace test.ViewModels
 {
-    //public class MainViewModel : BaseViewModel
-    //{
-    //    private AccueilViewModel _accueilViewModel;
-    //    private PersonneViewModel _personneViewModel;
-    //    private BaseViewModel _viewModelActuel;
-    //    public MainViewModel(MessageErreur erreur, Question question) : base(erreur, question) 
-    //    {
-    //        _accueilViewModel = new AccueilViewModel(erreur, question);
-    //        _personneViewModel = new PersonneViewModel(erreur, question);
-    //        ViewModelActuel = _accueilViewModel;
-    //        GoToPersonneCmd = new RelayCommand(GoToPersonne, null);
-    //        GoToAccueilCmd = new RelayCommand(GoToAccueil, null);
-
-    //    }
-
-    //    public void GoToAccueil(object? parameter)
-    //    {
-    //        ViewModelActuel = _accueilViewModel;
-    //    }
-
-    //    public void GoToPersonne(object? parameter)
-    //    {
-    //        ViewModelActuel = _personneViewModel;
-    //    }
-
-    //    public BaseViewModel ViewModelActuel
-    //    {
-    //        get { return _viewModelActuel; }
-    //        set { 
-    //            _viewModelActuel = value;
-    //            OnPropertyChanged();
-    //        }
-    //    }
-    //    public RelayCommand GoToPersonneCmd { get; set; }
-
-    //    public RelayCommand GoToAccueilCmd { get; set; }
-    //}
     public class MainViewModel : BaseViewModel
     {
         private BaseViewModel _viewModelActuel;
         private AccueilViewModel _accueilViewModel;
         private PersonneViewModel _personneViewModel;
 
-        public MainViewModel()
+        public MainViewModel(MessageErreur erreur, Question question) : base(erreur, question) 
         {
-            _accueilViewModel = new AccueilViewModel();
-            _personneViewModel = new PersonneViewModel();
+            _accueilViewModel = new AccueilViewModel(erreur, question);
+            _personneViewModel = new PersonneViewModel(erreur, question);
             ViewModelActuel = _personneViewModel;
             CmdGotoAccueil = new RelayCommand(GotoAccueil, null);
             CmdGotoPersonne = new RelayCommand(GotoPersonne, null);
@@ -77,8 +40,8 @@ namespace test.ViewModels
         {
             if (test.Properties.Settings.Default.langue != "fr-CA")
             {
-                var result = MessageBox.Show(test.Properties.traduction.confirmation, "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (result == MessageBoxResult.Yes)
+                var result = _question(test.Properties.traduction.confirmation);
+                if (result)
                 {
                     test.Properties.Settings.Default.langue = "fr-CA";
                     test.Properties.Settings.Default.Save();
@@ -96,8 +59,8 @@ namespace test.ViewModels
         {
             if (test.Properties.Settings.Default.langue != "en-US")
             {
-                var result = MessageBox.Show(test.Properties.traduction.confirmation, "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (result == MessageBoxResult.Yes)
+                var result = _question(test.Properties.traduction.confirmation);
+                if (result)
                 {
                     test.Properties.Settings.Default.langue = "en-US";
                     test.Properties.Settings.Default.Save();

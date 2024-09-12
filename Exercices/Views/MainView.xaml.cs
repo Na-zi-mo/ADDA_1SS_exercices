@@ -23,18 +23,18 @@ namespace test.Views
         public MainView()
         {
             InitializeComponent();
-            //DataContext = new MainViewModel(AfficherMessageErreur, PoserQuestion);
+            DataContext = new MainViewModel(AfficherMessageErreur, PoserQuestion);
         }
 
-        //public void AfficherMessageErreur(string message)
-        //{
-        //    MessageBox.Show(message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
-        //}
+        public void AfficherMessageErreur(string message)
+        {
+            MessageBox.Show(message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
 
-        //public bool PoserQuestion(string message)
-        //{
-        //    var result = MessageBox.Show(message, "Question", MessageBoxButton.YesNo, MessageBoxImage.Question);
-        //    return result == MessageBoxResult.Yes;
-        //}
+        public bool PoserQuestion(string message)
+        {
+            var result = MessageBox.Show(message, "Question", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            return result == MessageBoxResult.Yes;
+        }
     }
 }

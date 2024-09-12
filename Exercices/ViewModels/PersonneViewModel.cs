@@ -11,13 +11,6 @@ using static test.ViewModels.Delegates.ViewModelDelegates;
 
 namespace test.ViewModels
 {
-    //public class PersonneViewModel : BaseViewModel
-    //{
-    //    public PersonneViewModel(MessageErreur erreur, Question question) : base(erreur, question) 
-    //    {
-
-    //    }
-    //}
     public class PersonneViewModel : BaseViewModel
     {
         private Personne? _personneSelectionnee = null;
@@ -26,7 +19,7 @@ namespace test.ViewModels
         private string _telephone;
         private bool _modeAjout;
 
-        public PersonneViewModel()
+        public PersonneViewModel(MessageErreur erreur, Question question) : base(erreur, question)
         {
             this.Personnes = new ObservableCollection<Personne>();
             
@@ -59,7 +52,7 @@ namespace test.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                _erreur(ex.Message);
             }
         }
 
@@ -91,7 +84,7 @@ namespace test.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                    _erreur(ex.Message);
                 }
             }
         }

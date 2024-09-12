@@ -13,6 +13,9 @@ namespace test.ViewModels
 {
     public class AccueilViewModel : BaseViewModel
     {
-        
+        public AccueilViewModel(MessageErreur erreur, Question question) : base(erreur, question) 
+        {
+            
+        }
     }
 }

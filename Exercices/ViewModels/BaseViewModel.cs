@@ -13,12 +13,12 @@ namespace test.ViewModels
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
-        //protected MessageErreur _erreur;
-        //protected Question _question;
-        public BaseViewModel(/*MessageErreur erreur, Question question*/)
+        protected MessageErreur _erreur;
+        protected Question _question;
+        public BaseViewModel(MessageErreur erreur, Question question)
         {
-            //_erreur = erreur;
-            //_question = question;
+            _erreur = erreur;
+            _question = question;
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
