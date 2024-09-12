@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace exo1
+namespace tuto
 {
     /// <summary>
     /// Interaction logic for App.xaml

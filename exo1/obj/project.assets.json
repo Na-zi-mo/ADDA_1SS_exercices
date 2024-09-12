@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nazim\\OneDrive - Cégep de Shawinigan\\CÉGEP\\_A24\\DÉVELOPPEMENT SUJETS SPÉCIAUX\\Exercices\\exo1\\exo1.csproj",
-      "projectName": "exo1",
-      "projectPath": "C:\\Users\\nazim\\OneDrive - Cégep de Shawinigan\\CÉGEP\\_A24\\DÉVELOPPEMENT SUJETS SPÉCIAUX\\Exercices\\exo1\\exo1.csproj",
+      "projectUniqueName": "C:\\Users\\nazim\\OneDrive - Cégep de Shawinigan\\CÉGEP\\_A24\\DÉVELOPPEMENT SUJETS SPÉCIAUX\\ADDA_1SS_exercices\\exo1\\tuto.csproj",
+      "projectName": "tuto",
+      "projectPath": "C:\\Users\\nazim\\OneDrive - Cégep de Shawinigan\\CÉGEP\\_A24\\DÉVELOPPEMENT SUJETS SPÉCIAUX\\ADDA_1SS_exercices\\exo1\\tuto.csproj",
       "packagesPath": "C:\\Users\\nazim\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nazim\\OneDrive - Cégep de Shawinigan\\CÉGEP\\_A24\\DÉVELOPPEMENT SUJETS SPÉCIAUX\\Exercices\\exo1\\obj\\",
+      "outputPath": "C:\\Users\\nazim\\OneDrive - Cégep de Shawinigan\\CÉGEP\\_A24\\DÉVELOPPEMENT SUJETS SPÉCIAUX\\ADDA_1SS_exercices\\exo1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
