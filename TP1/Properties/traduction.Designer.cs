@@ -63,9 +63,18 @@ namespace TP1.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Ajouter.
         /// </summary>
-        public static string btn_ajout {
+        public static string btn_add {
             get {
-                return ResourceManager.GetString("btn_ajout", resourceCulture);
+                return ResourceManager.GetString("btn_add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Effacer.
+        /// </summary>
+        public static string btn_erase {
+            get {
+                return ResourceManager.GetString("btn_erase", resourceCulture);
             }
         }
         
@@ -174,6 +183,24 @@ namespace TP1.Properties {
         public static string column_zip_code {
             get {
                 return ResourceManager.GetString("column_zip_code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Décompte.
+        /// </summary>
+        public static string lbl_Count {
+            get {
+                return ResourceManager.GetString("lbl_Count", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Illégales Seulement.
+        /// </summary>
+        public static string lbl_only_illegal {
+            get {
+                return ResourceManager.GetString("lbl_only_illegal", resourceCulture);
             }
         }
         

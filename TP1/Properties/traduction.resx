@@ -117,8 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btn_ajout" xml:space="preserve">
+  <data name="btn_add" xml:space="preserve">
     <value>Ajouter</value>
+  </data>
+  <data name="btn_erase" xml:space="preserve">
+    <value>Effacer</value>
   </data>
   <data name="column_amount" xml:space="preserve">
     <value>Montant</value>
@@ -155,6 +158,12 @@
   </data>
   <data name="column_zip_code" xml:space="preserve">
     <value>Code Postal</value>
+  </data>
+  <data name="lbl_Count" xml:space="preserve">
+    <value>Décompte</value>
+  </data>
+  <data name="lbl_only_illegal" xml:space="preserve">
+    <value>Illégales Seulement</value>
   </data>
   <data name="menu_configuration" xml:space="preserve">
     <value>Configuration</value>
