@@ -1,0 +1,55 @@
+﻿<Window x:Class="test.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:test.Views"
+        xmlns:viewmodels="clr-namespace:test.ViewModels"
+        xmlns:p="clr-namespace:test.Properties"
+        mc:Ignorable="d"
+        Title="MainView" Height="600" Width="800" Name="win"
+        Icon="/Resources/drole.ico">
+    <Window.DataContext>
+        <viewmodels:MainViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:AccueilViewModel}">
+            <local:AccueilView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:PersonneViewModel}">
+            <local:PersonneView/>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Menu Width="{Binding ElementName=win, Path=Width}">
+            <MenuItem Header="Accueil" Command="{Binding GoToAccueilCmd}"/>
+            <MenuItem Header="Personnes" Command="{Binding GoToPersonneCmd}"/>
+        </Menu>
+
+        <ContentControl Grid.Row="1" Content="{Binding ViewModelActuel}" />-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Menu Width="{Binding ElementName=win, Path=Width}">
+            <MenuItem Header="{x:Static p:traduction.menu_Home}" Command="{Binding CmdGotoAccueil}"  />
+            <MenuItem Header="{x:Static p:traduction.menu_People}" Command="{Binding CmdGotoPersonne}"   />
+            <MenuItem Header="{x:Static p:traduction.menu_Languages}" >
+                <MenuItem Header="English" Command="{Binding CmdSetEnglish}" />
+                <MenuItem Header="Français" Command="{Binding CmdSetFrench}"/>
+            </MenuItem>
+
+        </Menu>
+
+        <!-- Pour indiquer quel View/ViewModel doit être affiché -->
+        <ContentControl Grid.Row="1" Content="{Binding ViewModelActuel}" />
+    </Grid>
+</Window>
