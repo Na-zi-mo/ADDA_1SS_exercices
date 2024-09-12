@@ -4,10 +4,33 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TP1.Views"
+             xmlns:p="clr-namespace:TP1.Properties"
              mc:Ignorable="d" 
-             d:DesignHeight="450" Background="White" d:DesignWidth="800">
+             d:DesignHeight="450" Background="#D8D8D8" d:DesignWidth="850">
     <Grid>
-        <Label Content="Election" HorizontalAlignment="Left" Margin="384,0,0,0" VerticalAlignment="Center"/>
+        <ListView x:Name="liste_contributions" Margin="24,85,24,0"
+                  Height="310"
+                  Background="#fbfbfb"
+                  VerticalAlignment="Top"
+                  >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="50" Header="{x:Static p:traduction.column_type}"/>
+                    <GridViewColumn Width="75" Header="{x:Static p:traduction.column_FirstName}"/>
+                    <GridViewColumn Width="75" Header="{x:Static p:traduction.column_LastName}"/>
+                    <GridViewColumn Width="50" Header="{x:Static p:traduction.column_amount}"/>
+                    <GridViewColumn Width="80" Header="{x:Static p:traduction.column_nb_payment}"/>
+                    <GridViewColumn Width="75" Header="{x:Static p:traduction.column_municipality}"/>
+                    <GridViewColumn Width="60" Header="{x:Static p:traduction.column_zip_code}"/>
+                    <GridViewColumn Width="55" Header="{x:Static p:traduction.column_party}"/>
+                    <GridViewColumn Width="65" Header="{x:Static p:traduction.column_candidate}"/>
+                    <GridViewColumn Width="75" Header="{x:Static p:traduction.column_event_date}"/>
+                    <GridViewColumn Width="85" Header="{x:Static p:traduction.column_financial_yr}"/>
+                    <GridViewColumn Width="50" Header="{x:Static p:traduction.column_illegal}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
 
     </Grid>
 </UserControl>

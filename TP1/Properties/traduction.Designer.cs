@@ -70,6 +70,114 @@ namespace TP1.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Montant.
+        /// </summary>
+        public static string column_amount {
+            get {
+                return ResourceManager.GetString("column_amount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Candidat.
+        /// </summary>
+        public static string column_candidate {
+            get {
+                return ResourceManager.GetString("column_candidate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date Événement.
+        /// </summary>
+        public static string column_event_date {
+            get {
+                return ResourceManager.GetString("column_event_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Année Financière.
+        /// </summary>
+        public static string column_financial_yr {
+            get {
+                return ResourceManager.GetString("column_financial_yr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prénom.
+        /// </summary>
+        public static string column_FirstName {
+            get {
+                return ResourceManager.GetString("column_FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Illégale?.
+        /// </summary>
+        public static string column_illegal {
+            get {
+                return ResourceManager.GetString("column_illegal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nom.
+        /// </summary>
+        public static string column_LastName {
+            get {
+                return ResourceManager.GetString("column_LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Municipalité.
+        /// </summary>
+        public static string column_municipality {
+            get {
+                return ResourceManager.GetString("column_municipality", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NB. Versements.
+        /// </summary>
+        public static string column_nb_payment {
+            get {
+                return ResourceManager.GetString("column_nb_payment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parti.
+        /// </summary>
+        public static string column_party {
+            get {
+                return ResourceManager.GetString("column_party", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string column_type {
+            get {
+                return ResourceManager.GetString("column_type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code Postal.
+        /// </summary>
+        public static string column_zip_code {
+            get {
+                return ResourceManager.GetString("column_zip_code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configuration.
         /// </summary>
         public static string menu_configuration {

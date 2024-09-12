@@ -120,7 +120,43 @@
   <data name="btn_ajout" xml:space="preserve">
     <value>Add</value>
   </data>
+  <data name="column_amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="column_candidate" xml:space="preserve">
+    <value>Candidate</value>
+  </data>
+  <data name="column_event_date" xml:space="preserve">
+    <value>Event Date</value>
+  </data>
+  <data name="column_financial_yr" xml:space="preserve">
+    <value>Financial Year</value>
+  </data>
+  <data name="column_FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="column_illegal" xml:space="preserve">
+    <value>Illegal?</value>
+  </data>
+  <data name="column_LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="column_municipality" xml:space="preserve">
+    <value>Municipality</value>
+  </data>
+  <data name="column_nb_payment" xml:space="preserve">
+    <value>Nb. Payment</value>
+  </data>
+  <data name="column_party" xml:space="preserve">
+    <value>Party</value>
+  </data>
+  <data name="column_type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="column_zip_code" xml:space="preserve">
+    <value>ZIP code</value>
+  </data>
   <data name="menu_configuration" xml:space="preserve">
-    <value>Configuration2</value>
+    <value>Configuration</value>
   </data>
 </root>

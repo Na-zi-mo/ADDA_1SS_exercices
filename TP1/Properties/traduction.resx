@@ -120,6 +120,42 @@
   <data name="btn_ajout" xml:space="preserve">
     <value>Ajouter</value>
   </data>
+  <data name="column_amount" xml:space="preserve">
+    <value>Montant</value>
+  </data>
+  <data name="column_candidate" xml:space="preserve">
+    <value>Candidat</value>
+  </data>
+  <data name="column_event_date" xml:space="preserve">
+    <value>Date Événement</value>
+  </data>
+  <data name="column_financial_yr" xml:space="preserve">
+    <value>Année Financière</value>
+  </data>
+  <data name="column_FirstName" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="column_illegal" xml:space="preserve">
+    <value>Illégale?</value>
+  </data>
+  <data name="column_LastName" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="column_municipality" xml:space="preserve">
+    <value>Municipalité</value>
+  </data>
+  <data name="column_nb_payment" xml:space="preserve">
+    <value>NB. Versements</value>
+  </data>
+  <data name="column_party" xml:space="preserve">
+    <value>Parti</value>
+  </data>
+  <data name="column_type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="column_zip_code" xml:space="preserve">
+    <value>Code Postal</value>
+  </data>
   <data name="menu_configuration" xml:space="preserve">
     <value>Configuration</value>
   </data>

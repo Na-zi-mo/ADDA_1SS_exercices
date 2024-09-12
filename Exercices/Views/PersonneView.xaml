@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="#FFA8C9F5">
         <ListView x:Name="liste_items" Margin="78,62,85,0" 
-           Background="#FF92DCE2" 
+           Background="#fbfbfb" 
            Height="310" VerticalAlignment="Top" 
            ItemsSource="{Binding Path=Personnes}"
            SelectedItem="{Binding PersonneSelectionnee, Mode=OneWayToSource}">
