@@ -42,6 +42,10 @@ namespace TP1.ViewModels
                 return false;
             }*/);
             AddContributionsCmd = new RelayCommand(AddContributions, null);
+            FilterContributionsCmd = new RelayCommand(FilterContributions, (object? parameter) =>
+            {
+                return this.Contributions.Count > 0;
+            });
         }
 
         public ObservableCollection<Contribution> Contributions { get; set; }
@@ -82,8 +86,14 @@ namespace TP1.ViewModels
             this.Contributions.Clear();
         }
 
+        public void FilterContributions(object? parameter)
+        {
+
+        }
+
         public RelayCommand AddContributionsCmd { get; set; }
         public RelayCommand DeleteContributionsCmd { get; set; }
+        public RelayCommand FilterContributionsCmd { get; set; }
 
     }
 }

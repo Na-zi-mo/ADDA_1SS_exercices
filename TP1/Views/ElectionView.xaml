@@ -42,7 +42,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="440,41,0,0" TextWrapping="Wrap" Text="{x:Static p:traduction.lbl_Count}" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="502,41,0,0" TextWrapping="Wrap" Text="{Binding Path=Contributions.Count}" VerticalAlignment="Top" RenderTransformOrigin="0.477,1.472"/>
         <TextBlock HorizontalAlignment="Left" Margin="660,41,0,0" TextWrapping="Wrap" Text="{x:Static p:traduction.lbl_only_illegal}" VerticalAlignment="Top" RenderTransformOrigin="0.477,1.472"/>
-        <CheckBox  HorizontalAlignment="Left" Margin="768,42,0,0" VerticalAlignment="Top"/>
+        <CheckBox Command="{Binding FilterContributionsCmd}"  HorizontalAlignment="Left" Margin="768,42,0,0" VerticalAlignment="Top"/>
 
 
     </Grid>
