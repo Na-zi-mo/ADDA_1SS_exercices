@@ -14,28 +14,29 @@
                   Height="310"
                   Background="#d8d8d8"
                   VerticalAlignment="Top"
+                  ItemsSource="{Binding Path=Contributions}"
                   >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="50" Header="{x:Static p:traduction.column_type}" />
-                    <GridViewColumn Width="75" Header="{x:Static p:traduction.column_FirstName}"/>
-                    <GridViewColumn Width="75" Header="{x:Static p:traduction.column_LastName}"/>
-                    <GridViewColumn Width="50" Header="{x:Static p:traduction.column_amount}"/>
-                    <GridViewColumn Width="80" Header="{x:Static p:traduction.column_nb_payment}"/>
-                    <GridViewColumn Width="75" Header="{x:Static p:traduction.column_municipality}"/>
-                    <GridViewColumn Width="60" Header="{x:Static p:traduction.column_zip_code}"/>
-                    <GridViewColumn Width="55" Header="{x:Static p:traduction.column_party}"/>
-                    <GridViewColumn Width="65" Header="{x:Static p:traduction.column_candidate}"/>
-                    <GridViewColumn Width="75" Header="{x:Static p:traduction.column_event_date}"/>
-                    <GridViewColumn Width="85" Header="{x:Static p:traduction.column_financial_yr}"/>
-                    <GridViewColumn Width="50" Header="{x:Static p:traduction.column_illegal}"/>
+                    <GridViewColumn Width="50" Header="{x:Static p:traduction.column_type}" DisplayMemberBinding="{Binding Type, Mode=OneWay}" />
+                    <GridViewColumn Width="75" Header="{x:Static p:traduction.column_FirstName}" DisplayMemberBinding="{Binding Prenom, Mode=OneWay}"/>
+                    <GridViewColumn Width="75" Header="{x:Static p:traduction.column_LastName}" DisplayMemberBinding="{Binding Nom, Mode=OneWay}"/>
+                    <GridViewColumn Width="50" Header="{x:Static p:traduction.column_amount}" DisplayMemberBinding="{Binding Montant, Mode=OneWay}"/>
+                    <GridViewColumn Width="80" Header="{x:Static p:traduction.column_nb_payment}" DisplayMemberBinding="{Binding NbVersements, Mode=OneWay}"/>
+                    <GridViewColumn Width="75" Header="{x:Static p:traduction.column_municipality}" DisplayMemberBinding="{Binding Municipalite, Mode=OneWay}"/>
+                    <GridViewColumn Width="60" Header="{x:Static p:traduction.column_zip_code}" DisplayMemberBinding="{Binding CodePostal, Mode=OneWay}"/>
+                    <GridViewColumn Width="55" Header="{x:Static p:traduction.column_party}" DisplayMemberBinding="{Binding Parti, Mode=OneWay}"/>
+                    <GridViewColumn Width="65" Header="{x:Static p:traduction.column_candidate}" DisplayMemberBinding="{Binding Candidat, Mode=OneWay}"/>
+                    <GridViewColumn Width="75" Header="{x:Static p:traduction.column_event_date}" DisplayMemberBinding="{Binding DateEvenement, Mode=OneWay}"/>
+                    <GridViewColumn Width="85" Header="{x:Static p:traduction.column_financial_yr}" DisplayMemberBinding="{Binding AnneeFinanciere, Mode=OneWay}"/>
+                    <GridViewColumn Width="50" Header="{x:Static p:traduction.column_illegal}" DisplayMemberBinding="{Binding Parti, Mode=OneWay}"/>
                 </GridView>
             </ListView.View>
         </ListView>
         <Button Content="{x:Static p:traduction.btn_add}" HorizontalAlignment="Left" Margin="24,37,0,0" VerticalAlignment="Top" Width="86"/>
         <Button Content="{x:Static p:traduction.btn_erase}" HorizontalAlignment="Left" Margin="158,37,0,0" VerticalAlignment="Top" Width="86"/>
         <TextBlock HorizontalAlignment="Left" Margin="440,41,0,0" TextWrapping="Wrap" Text="{x:Static p:traduction.lbl_Count}" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="502,41,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.477,1.472"/>
+        <TextBlock HorizontalAlignment="Left" Margin="502,41,0,0" TextWrapping="Wrap" Text="{Binding Path=Contributions.Count}" VerticalAlignment="Top" RenderTransformOrigin="0.477,1.472"/>
         <TextBlock HorizontalAlignment="Left" Margin="660,41,0,0" TextWrapping="Wrap" Text="{x:Static p:traduction.lbl_only_illegal}" VerticalAlignment="Top" RenderTransformOrigin="0.477,1.472"/>
         <CheckBox  HorizontalAlignment="Left" Margin="768,42,0,0" VerticalAlignment="Top"/>
 

@@ -61,6 +61,19 @@ namespace TP1.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Type d&apos;entité politique;Nom, prénom;Montant total;Nombre de versements;Municipalité;Code postal;Entité politique;Personne candidate;Date de l&apos;événement;Année financière
+        ///Parti;Roy, André;200;1;Mont-Royal;H3R1W1;Coalition avenir Québec - L&apos;équipe François Legault;;;2018
+        ///Parti;Bernard, Luc;200;1;Longueuil;J4N1P6;Coalition avenir Québec - L&apos;équipe François Legault;;;2018
+        ///Parti;Bourgouin, Diane;100;1;Saguenay;G7N1M7;Parti libéral du Québec/Quebec Liberal Party;;;2017
+        ///Parti;Lavallée, Caroline;100;1;Drummondvi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string contributions {
+            get {
+                return ResourceManager.GetString("contributions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] election {
