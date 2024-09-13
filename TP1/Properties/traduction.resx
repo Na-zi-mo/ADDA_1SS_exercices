@@ -126,6 +126,12 @@
   <data name="column_amount" xml:space="preserve">
     <value>Montant</value>
   </data>
+  <data name="column_bool_illegal" xml:space="preserve">
+    <value>Oui</value>
+  </data>
+  <data name="column_bool_legal" xml:space="preserve">
+    <value>Non</value>
+  </data>
   <data name="column_candidate" xml:space="preserve">
     <value>Candidat</value>
   </data>

@@ -88,6 +88,24 @@ namespace TP1.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Oui.
+        /// </summary>
+        public static string column_bool_illegal {
+            get {
+                return ResourceManager.GetString("column_bool_illegal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Non.
+        /// </summary>
+        public static string column_bool_legal {
+            get {
+                return ResourceManager.GetString("column_bool_legal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Candidat.
         /// </summary>
         public static string column_candidate {

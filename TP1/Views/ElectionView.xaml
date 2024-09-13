@@ -5,10 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TP1.Views"
              xmlns:p="clr-namespace:TP1.Properties"
+             xmlns:converters="clr-namespace:TP1.ViewModels.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="450" Background="#fbfbfb" d:DesignWidth="850">
     <!--"#D8D8D8"-->
     <!--"#fbfbfb"-->
+    <UserControl.Resources>
+        <converters:BoolToLegalConverter x:Key="boolToLegal" />
+    </UserControl.Resources>
     <Grid>
         <ListView x:Name="liste_contributions" Margin="24,85,24,0"
                   Height="310"
@@ -29,7 +33,7 @@
                     <GridViewColumn Width="65" Header="{x:Static p:traduction.column_candidate}" DisplayMemberBinding="{Binding Candidat, Mode=OneWay}"/>
                     <GridViewColumn Width="75" Header="{x:Static p:traduction.column_event_date}" DisplayMemberBinding="{Binding DateEvenement, Mode=OneWay}"/>
                     <GridViewColumn Width="85" Header="{x:Static p:traduction.column_financial_yr}" DisplayMemberBinding="{Binding AnneeFinanciere, Mode=OneWay}"/>
-                    <GridViewColumn Width="50" Header="{x:Static p:traduction.column_illegal}" DisplayMemberBinding="{Binding Parti, Mode=OneWay}"/>
+                    <GridViewColumn Width="50" Header="{x:Static p:traduction.column_illegal}" DisplayMemberBinding="{Binding EstIllegale, Converter={StaticResource boolToLegal}, Mode=OneWay}"/>
                 </GridView>
             </ListView.View>
         </ListView>
