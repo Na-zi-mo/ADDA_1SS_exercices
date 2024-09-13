@@ -36,5 +36,11 @@ namespace TP1.Views
             var result = MessageBox.Show(message, "Question", MessageBoxButton.YesNo, MessageBoxImage.Question);
             return result == MessageBoxResult.Yes;
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            ConfigurationView configView = new ConfigurationView();
+            configView.ShowDialog();
+        }
     }
 }

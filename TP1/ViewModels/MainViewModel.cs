@@ -12,12 +12,14 @@ namespace TP1.ViewModels
     {
         private ElectionViewModel _electionViewModel;
         private BaseViewModel _viewModelActuel;
+
         public MainViewModel(MessageErreur erreur, Question question) : base(erreur, question) 
         {
             _electionViewModel = new ElectionViewModel(erreur, question);
             ViewModelActuel = _electionViewModel;
             //GoToPersonneCmd = new RelayCommand(GoToPersonne, null);
             //GoToAccueilCmd = new RelayCommand(GoToAccueil, null);
+            //DisplayConfigurationCmd = new RelayCommand(DisplayConfiguration, null);
 
         }
 
@@ -27,6 +29,11 @@ namespace TP1.ViewModels
         //}
 
         //public void GoToPersonne(object? parameter)
+        //{
+        //    ViewModelActuel = _personneViewModel;
+        //}
+
+        //public void DisplayConfiguration(object? parameter)
         //{
         //    ViewModelActuel = _personneViewModel;
         //}
@@ -42,5 +49,7 @@ namespace TP1.ViewModels
         //public RelayCommand GoToPersonneCmd { get; set; }
 
         //public RelayCommand GoToAccueilCmd { get; set; }
+
+        //public RelayCommand DisplayConfigurationCmd { get; set; }   
     }
 }
