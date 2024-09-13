@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -18,9 +19,10 @@ namespace TP1.ViewModels
     {
         private ObservableCollection<Contribution> _contributions;
 
-        public ElectionViewModel(MessageErreur erreur, Question question) : base(erreur, question) 
+        public ElectionViewModel(MessageErreur erreur, Question question, OpenFileDialogInput openFileDialog) : base(erreur, question, openFileDialog) 
         {
             this.Contributions = new ObservableCollection<Contribution>();
+            //_openFileDialog = openFileDialog;
 
             //List<string> lines = new List<string>(TP1.Properties.AutresRessources.contributions.Split('\n'));
 
@@ -59,16 +61,20 @@ namespace TP1.ViewModels
 
         public void AddContributions(object? parameter)
         {
-            var file = new Microsoft.Win32.OpenFileDialog();
-
-            file.ShowDialog();
-
-            this.AnalyseurContributions = new AnalyseurContributions(file.FileName);
-
-            ObservableCollection<Contribution> NewContributions = new ObservableCollection<Contribution>(AnalyseurContributions.Contributions);
-            foreach (var item in NewContributions)
+            
+            string path = _openFileDialog();
+            try
             {
-                this.Contributions.Add(item);
+                this.AnalyseurContributions = new AnalyseurContributions(path);
+                ObservableCollection<Contribution> NewContributions = new ObservableCollection<Contribution>(AnalyseurContributions.Contributions);
+                foreach (var item in NewContributions)
+                {
+                    this.Contributions.Add(item);
+                }
+            }
+            catch (Exception)
+            {
+                _erreur("Not Valid");
             }
         }
         public void DeleteContributions(object? parameter)

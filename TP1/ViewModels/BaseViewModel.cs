@@ -15,10 +15,12 @@ namespace TP1.ViewModels
     {
         protected MessageErreur _erreur;
         protected Question _question;
-        public BaseViewModel(MessageErreur erreur, Question question)
+        protected OpenFileDialogInput _openFileDialog;
+        public BaseViewModel(MessageErreur erreur, Question question, OpenFileDialogInput openFileDialog)
         {
             _erreur = erreur;
             _question = question;
+            _openFileDialog = openFileDialog;
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

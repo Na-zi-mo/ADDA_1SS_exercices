@@ -23,7 +23,14 @@ namespace TP1.Views
         public MainView()
         {
             InitializeComponent();
-            DataContext = new MainViewModel(AfficherMessageErreur, PoserQuestion);
+            DataContext = new MainViewModel(AfficherMessageErreur, PoserQuestion, OpenFileDialog);
+        }
+
+        public string OpenFileDialog()
+        {
+            var file = new Microsoft.Win32.OpenFileDialog();
+            file.ShowDialog();
+            return file.FileName;
         }
 
         public void AfficherMessageErreur(string message)

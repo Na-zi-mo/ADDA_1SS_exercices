@@ -10,5 +10,6 @@ namespace TP1.ViewModels.Delegates
     {
         public delegate void MessageErreur(string message);
         public delegate bool Question(string message);
+        public delegate string OpenFileDialogInput();
     }
 }

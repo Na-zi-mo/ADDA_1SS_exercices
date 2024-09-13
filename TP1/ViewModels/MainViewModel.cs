@@ -13,9 +13,9 @@ namespace TP1.ViewModels
         private ElectionViewModel _electionViewModel;
         private BaseViewModel _viewModelActuel;
 
-        public MainViewModel(MessageErreur erreur, Question question) : base(erreur, question) 
+        public MainViewModel(MessageErreur erreur, Question question, OpenFileDialogInput openFileDialog) : base(erreur, question, openFileDialog) 
         {
-            _electionViewModel = new ElectionViewModel(erreur, question);
+            _electionViewModel = new ElectionViewModel(erreur, question, openFileDialog);
             ViewModelActuel = _electionViewModel;
             //GoToPersonneCmd = new RelayCommand(GoToPersonne, null);
             //GoToAccueilCmd = new RelayCommand(GoToAccueil, null);
