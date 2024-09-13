@@ -205,6 +205,15 @@ namespace TP1.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fichier CSV non valide..
+        /// </summary>
+        public static string error_msg_csv {
+            get {
+                return ResourceManager.GetString("error_msg_csv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Décompte.
         /// </summary>
         public static string lbl_Count {

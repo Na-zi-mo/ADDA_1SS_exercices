@@ -74,7 +74,7 @@ namespace TP1.ViewModels
             }
             catch (Exception)
             {
-                _erreur("Not Valid");
+                _erreur(TP1.Properties.traduction.error_msg_csv);
             }
         }
         public void DeleteContributions(object? parameter)

@@ -165,6 +165,9 @@
   <data name="column_zip_code" xml:space="preserve">
     <value>ZIP code</value>
   </data>
+  <data name="error_msg_csv" xml:space="preserve">
+    <value>CSV File is not valid.</value>
+  </data>
   <data name="lbl_Count" xml:space="preserve">
     <value>Count</value>
   </data>
