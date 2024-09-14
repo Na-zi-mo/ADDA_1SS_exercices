@@ -19,28 +19,17 @@ namespace TP1.ViewModels
     {
         private ObservableCollection<Contribution> _contributions;
 
+
         public ElectionViewModel(MessageErreur erreur, Question question, OpenFileDialogInput openFileDialog) : base(erreur, question, openFileDialog) 
         {
             this.Contributions = new ObservableCollection<Contribution>();
-            //_openFileDialog = openFileDialog;
+            this.AnalyseurContributions = new AnalyseurContributions();
 
-            //List<string> lines = new List<string>(TP1.Properties.AutresRessources.contributions.Split('\n'));
-
-            //foreach (string line in lines)
-            //{
-            //    //this.Contributions.Add(new Contribution(line));
-            //}
-
-            //for (int i = 1; i < 3; i++)
-            //{
-            //    this.Contributions.Add(new Contribution(lines[i]));
-            //}
-
-            DeleteContributionsCmd = new RelayCommand(DeleteContributions, null /*(object? parameter) =>
+            DeleteContributionsCmd = new RelayCommand(DeleteContributions, (object? parameter) =>
             {
                 if (this.Contributions.Count > 0) return true;
                 return false;
-            }*/);
+            });
             AddContributionsCmd = new RelayCommand(AddContributions, null);
             FilterContributionsCmd = new RelayCommand(FilterContributions, (object? parameter) =>
             {
@@ -48,7 +37,19 @@ namespace TP1.ViewModels
             });
         }
 
-        public ObservableCollection<Contribution> Contributions { get; set; }
+        public ObservableCollection<Contribution> Contributions
+        {
+            get { return _contributions; }
+            set {
+                if (_contributions != value)
+                {
+                    _contributions = value;
+                    OnPropertyChanged(nameof(Contributions));
+                }
+            }
+        }
+
+        private List<Contribution> OnlyIllegalContributions { get; set; }
         
         private AnalyseurContributions _analyseurContributions;
 
@@ -69,8 +70,9 @@ namespace TP1.ViewModels
             string path = _openFileDialog();
             try
             {
-                this.AnalyseurContributions = new AnalyseurContributions(path);
-                ObservableCollection<Contribution> NewContributions = new ObservableCollection<Contribution>(AnalyseurContributions.Contributions);
+                AnalyseurContributions NewAnalyseurContributions = new AnalyseurContributions(path);
+                this.AnalyseurContributions.Contributions.AddRange(NewAnalyseurContributions.Contributions);
+                ObservableCollection<Contribution> NewContributions = new ObservableCollection<Contribution>(NewAnalyseurContributions.Contributions);
                 foreach (var item in NewContributions)
                 {
                     this.Contributions.Add(item);
@@ -84,11 +86,21 @@ namespace TP1.ViewModels
         public void DeleteContributions(object? parameter)
         {
             this.Contributions.Clear();
+            this.AnalyseurContributions.Contributions.Clear();
         }
 
         public void FilterContributions(object? parameter)
         {
+            bool IsChecked = (bool)parameter;
 
+            if (IsChecked)
+            {
+                this.Contributions = new ObservableCollection<Contribution>(AnalyseurContributions.RechercherContributionsPossiblementIllegales());
+            }
+            else
+            {
+                this.Contributions = new ObservableCollection<Contribution>(AnalyseurContributions.Contributions);
+            }
         }
 
         public RelayCommand AddContributionsCmd { get; set; }
