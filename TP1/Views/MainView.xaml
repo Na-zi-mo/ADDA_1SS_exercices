@@ -23,7 +23,7 @@
         </Grid.RowDefinitions>
 
         <Menu Width="{Binding ElementName=win, Path=Width}">
-            <MenuItem Header="{x:Static p:traduction.menu_configuration}" Click="MenuItem_Click" />
+            <MenuItem Header="{x:Static p:traduction.menu_configuration}" Command="{Binding OpenConfigurationWindowCmd}" />
         </Menu>
 
         <ContentControl Grid.Row="1" Content="{Binding ViewModelActuel}" />
