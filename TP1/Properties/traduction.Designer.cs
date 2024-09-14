@@ -70,11 +70,29 @@ namespace TP1.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Annuler.
+        /// </summary>
+        public static string btn_cancel {
+            get {
+                return ResourceManager.GetString("btn_cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Effacer.
         /// </summary>
         public static string btn_erase {
             get {
                 return ResourceManager.GetString("btn_erase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sauvegarder.
+        /// </summary>
+        public static string btn_save {
+            get {
+                return ResourceManager.GetString("btn_save", resourceCulture);
             }
         }
         
@@ -223,11 +241,29 @@ namespace TP1.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Langue :.
+        /// </summary>
+        public static string lbl_language {
+            get {
+                return ResourceManager.GetString("lbl_language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Illégales Seulement.
         /// </summary>
         public static string lbl_only_illegal {
             get {
                 return ResourceManager.GetString("lbl_only_illegal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to : Redémarrer après changements.
+        /// </summary>
+        public static string lbl_restart_after_changes {
+            get {
+                return ResourceManager.GetString("lbl_restart_after_changes", resourceCulture);
             }
         }
         

@@ -120,8 +120,14 @@
   <data name="btn_add" xml:space="preserve">
     <value>Ajouter</value>
   </data>
+  <data name="btn_cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
   <data name="btn_erase" xml:space="preserve">
     <value>Effacer</value>
+  </data>
+  <data name="btn_save" xml:space="preserve">
+    <value>Sauvegarder</value>
   </data>
   <data name="column_amount" xml:space="preserve">
     <value>Montant</value>
@@ -171,8 +177,14 @@
   <data name="lbl_Count" xml:space="preserve">
     <value>Décompte</value>
   </data>
+  <data name="lbl_language" xml:space="preserve">
+    <value>Langue :</value>
+  </data>
   <data name="lbl_only_illegal" xml:space="preserve">
     <value>Illégales Seulement</value>
+  </data>
+  <data name="lbl_restart_after_changes" xml:space="preserve">
+    <value>: Redémarrer après changements</value>
   </data>
   <data name="menu_configuration" xml:space="preserve">
     <value>Configuration</value>
