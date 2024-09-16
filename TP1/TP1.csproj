@@ -9,12 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\contributions.csv" />
     <None Remove="Resources\election.ico" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\contributions.csv" />
     <Resource Include="Resources\election.ico" />
   </ItemGroup>
 

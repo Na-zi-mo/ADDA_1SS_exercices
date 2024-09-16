@@ -8,8 +8,6 @@
              xmlns:converters="clr-namespace:TP1.ViewModels.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="450" Background="#fbfbfb" d:DesignWidth="850">
-    <!--"#D8D8D8"-->
-    <!--"#fbfbfb"-->
     <UserControl.Resources>
         <converters:BoolToLegalConverter x:Key="boolToLegal" />
     </UserControl.Resources>

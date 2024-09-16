@@ -14,31 +14,13 @@ namespace TP1.ViewModels
         private BaseViewModel _viewModelActuel;
         protected OpenConfigurationWindow _openConfigurationWindow;
 
-        public MainViewModel(MessageErreur erreur, Question question, OpenFileDialogInput openFileDialog, OpenConfigurationWindow openConfigurationWindow) : base(erreur, question, openFileDialog) 
+        public MainViewModel(MessageErreur erreur, Question question, OpenFileDialogInput openFileDialog, OpenConfigurationWindow openConfigurationWindow) : base(erreur, question, openFileDialog)
         {
             _electionViewModel = new ElectionViewModel(erreur, question, openFileDialog);
             _openConfigurationWindow = openConfigurationWindow;
             ViewModelActuel = _electionViewModel;
-            //GoToPersonneCmd = new RelayCommand(GoToPersonne, null);
-            //GoToAccueilCmd = new RelayCommand(GoToAccueil, null);
-            //DisplayConfigurationCmd = new RelayCommand(DisplayConfiguration, null);
             OpenConfigurationWindowCmd = new RelayCommand(DisplayConfiguration, null);
         }
-
-        //public void GoToAccueil(object? parameter)
-        //{
-        //    ViewModelActuel = _accueilViewModel;
-        //}
-
-        //public void GoToPersonne(object? parameter)
-        //{
-        //    ViewModelActuel = _personneViewModel;
-        //}
-
-        //public void DisplayConfiguration(object? parameter)
-        //{
-        //    ViewModelActuel = _personneViewModel;
-        //}
 
         public void DisplayConfiguration(object? parameter)
         {
@@ -48,17 +30,13 @@ namespace TP1.ViewModels
         public BaseViewModel ViewModelActuel
         {
             get { return _viewModelActuel; }
-            set { 
+            set
+            {
                 _viewModelActuel = value;
                 OnPropertyChanged();
             }
         }
 
         public RelayCommand OpenConfigurationWindowCmd { get; set; }
-        //public RelayCommand GoToPersonneCmd { get; set; }
-
-        //public RelayCommand GoToAccueilCmd { get; set; }
-
-        //public RelayCommand DisplayConfigurationCmd { get; set; }   
     }
 }
