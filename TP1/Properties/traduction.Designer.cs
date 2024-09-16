@@ -232,6 +232,24 @@ namespace TP1.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        public static string information_caption {
+            get {
+                return ResourceManager.GetString("information_caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to L&apos;application va redémarrer pour appliquer les changements..
+        /// </summary>
+        public static string information_dialog_msg {
+            get {
+                return ResourceManager.GetString("information_dialog_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Décompte.
         /// </summary>
         public static string lbl_Count {

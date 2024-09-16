@@ -25,6 +25,7 @@ namespace TP1.ViewModels
 
         private string _selectedLanguage;
         protected CloseConfigurationWIndow _closeWindow;
+        protected ShowInformationDialog _showInformation;
 
         public string SelectedLanguage
         {
@@ -33,15 +34,17 @@ namespace TP1.ViewModels
                 _selectedLanguage = value;
             } 
         }
-        public ConfigurationViewModel(MessageErreur erreur, Question question, OpenFileDialogInput openFileDialog, CloseConfigurationWIndow closeWindow) : base(erreur, question, openFileDialog)
+        public ConfigurationViewModel(MessageErreur erreur, Question question, OpenFileDialogInput openFileDialog, CloseConfigurationWIndow closeWindow, ShowInformationDialog showInformation) : base(erreur, question, openFileDialog)
         {
             _closeWindow = closeWindow;
+            _showInformation = showInformation;
 
             SaveConfigurationCmd = new RelayCommand(SaveConfiguration, (object? parameter) =>
             {
                 return SelectedLanguage != null;
             });
             CancelConfigurationCmd = new RelayCommand(CancelConfiguration, null);
+            
         }
 
         public void SaveConfiguration(object? parameter)
@@ -50,6 +53,7 @@ namespace TP1.ViewModels
             TP1.Properties.Settings.Default.Save();
 
             if (IsRestartChecked) {
+                _showInformation(TP1.Properties.traduction.information_dialog_msg);
                 System.Diagnostics.Process.Start(fileName: Environment.ProcessPath);
                 Application.Current.Shutdown();
             }

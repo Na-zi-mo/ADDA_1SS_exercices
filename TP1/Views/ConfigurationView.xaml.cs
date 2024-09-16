@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static TP1.ViewModels.Delegates.ViewModelDelegates;
 using TP1.ViewModels;
+using TP1.Models;
 
 namespace TP1.Views
 {
@@ -25,7 +26,7 @@ namespace TP1.Views
         public ConfigurationView()
         {
             InitializeComponent();
-            DataContext = new ConfigurationViewModel(AfficherMessageErreur, PoserQuestion, OpenFileDialog, CloseWindow);
+            DataContext = new ConfigurationViewModel(AfficherMessageErreur, PoserQuestion, OpenFileDialog, CloseWindow, ShowInformation);
         }
         public string OpenFileDialog()
         {
@@ -47,6 +48,11 @@ namespace TP1.Views
         public void CloseWindow()
         {
             this.Close();
+        }
+
+        public void ShowInformation(string message)
+        {
+            MessageBox.Show(message, TP1.Properties.traduction.information_caption, MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
