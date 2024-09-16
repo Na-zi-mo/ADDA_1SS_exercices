@@ -9,14 +9,21 @@
         Icon="/Resources/election.ico"
         Title="Configuration" Height="350" Width="300">
     <Grid>
-        <ComboBox HorizontalAlignment="Left" Margin="160,39,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem Content="English" />
-            <ComboBoxItem Content="Français" />
+        <ComboBox 
+            HorizontalAlignment="Left" 
+            Margin="160,39,0,0" 
+            VerticalAlignment="Top" 
+            Width="120" 
+            SelectedValue="{Binding SelectedLanguage, Mode=TwoWay}"
+            SelectedValuePath="Tag"
+            >
+            <ComboBoxItem Content="English" Tag="en-US"/>
+            <ComboBoxItem Content="Français" Tag="fr-CA" />
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="86,42,0,0" TextWrapping="Wrap" Text="{x:Static p:traduction.lbl_language}" VerticalAlignment="Top"/>
         <CheckBox FlowDirection="RightToLeft" Content="{x:Static p:traduction.lbl_restart_after_changes}" HorizontalAlignment="Left" Margin="67,211,0,0" VerticalAlignment="Top" />
-        <Button Content="{x:Static p:traduction.btn_save}" HorizontalAlignment="Left" Margin="19,268,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button Content="{x:Static p:traduction.btn_cancel}" HorizontalAlignment="Left" Margin="155,268,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="{x:Static p:traduction.btn_save}" Command="{Binding SaveConfigurationCmd}" HorizontalAlignment="Left" Margin="19,268,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="{x:Static p:traduction.btn_cancel}" Command="{Binding CancelConfigurationCmd}"  HorizontalAlignment="Left" Margin="155,268,0,0" VerticalAlignment="Top" Width="120"/>
 
 
     </Grid>

@@ -12,5 +12,6 @@ namespace TP1.ViewModels.Delegates
         public delegate bool Question(string message);
         public delegate string OpenFileDialogInput();
         public delegate void OpenConfigurationWindow();
+        public delegate void CloseConfigurationWIndow();
     }
 }
