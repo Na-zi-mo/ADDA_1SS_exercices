@@ -34,7 +34,7 @@ namespace TP1.ViewModels
                 _selectedLanguage = value;
             } 
         }
-        public ConfigurationViewModel(MessageErreur erreur, Question question, OpenFileDialogInput openFileDialog, CloseConfigurationWIndow closeWindow, ShowInformationDialog showInformation) : base(erreur, question, openFileDialog)
+        public ConfigurationViewModel(CloseConfigurationWIndow closeWindow, ShowInformationDialog showInformation) 
         {
             _closeWindow = closeWindow;
             _showInformation = showInformation;

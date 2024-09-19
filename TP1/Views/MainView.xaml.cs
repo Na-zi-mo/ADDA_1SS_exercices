@@ -23,7 +23,7 @@ namespace TP1.Views
         public MainView()
         {
             InitializeComponent();
-            DataContext = new MainViewModel(AfficherMessageErreur, PoserQuestion, OpenFileDialog, OpenConfigurationWindow);
+            DataContext = new MainViewModel(AfficherMessageErreur, OpenFileDialog, OpenConfigurationWindow);
         }
 
         public string OpenFileDialog()
@@ -35,14 +35,9 @@ namespace TP1.Views
 
         public void AfficherMessageErreur(string message)
         {
-            MessageBox.Show(message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(message, TP1.Properties.traduction.error_caption, MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        public bool PoserQuestion(string message)
-        {
-            var result = MessageBox.Show(message, "Question", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            return result == MessageBoxResult.Yes;
-        }
         public void OpenConfigurationWindow()
         {
             ConfigurationView configView = new ConfigurationView();

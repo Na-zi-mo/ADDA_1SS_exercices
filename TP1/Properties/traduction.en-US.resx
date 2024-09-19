@@ -171,6 +171,9 @@
   <data name="column_zip_code" xml:space="preserve">
     <value>ZIP code</value>
   </data>
+  <data name="error_caption" xml:space="preserve">
+    <value>Error</value>
+  </data>
   <data name="error_msg_csv" xml:space="preserve">
     <value>CSV File is not valid.</value>
   </data>

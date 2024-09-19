@@ -13,14 +13,10 @@ namespace TP1.ViewModels
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
-        protected MessageErreur _erreur;
-        protected Question _question;
-        protected OpenFileDialogInput _openFileDialog;
-        public BaseViewModel(MessageErreur erreur, Question question, OpenFileDialogInput openFileDialog)
+        
+        public BaseViewModel()
         {
-            _erreur = erreur;
-            _question = question;
-            _openFileDialog = openFileDialog;
+
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

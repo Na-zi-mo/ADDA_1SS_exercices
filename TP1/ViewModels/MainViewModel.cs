@@ -10,14 +10,16 @@ namespace TP1.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
+        protected OpenFileDialogInput _openFileDialog;
         private ElectionViewModel _electionViewModel;
         private BaseViewModel _viewModelActuel;
         protected OpenConfigurationWindow _openConfigurationWindow;
 
-        public MainViewModel(MessageErreur erreur, Question question, OpenFileDialogInput openFileDialog, OpenConfigurationWindow openConfigurationWindow) : base(erreur, question, openFileDialog)
+        public MainViewModel(MessageErreur erreur, OpenFileDialogInput openFileDialog, OpenConfigurationWindow openConfigurationWindow)
         {
-            _electionViewModel = new ElectionViewModel(erreur, question, openFileDialog);
             _openConfigurationWindow = openConfigurationWindow;
+            _openFileDialog = openFileDialog;
+            _electionViewModel = new ElectionViewModel(erreur, openFileDialog);
             ViewModelActuel = _electionViewModel;
             OpenConfigurationWindowCmd = new RelayCommand(DisplayConfiguration, null);
         }

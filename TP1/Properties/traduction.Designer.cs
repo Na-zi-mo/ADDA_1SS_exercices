@@ -223,6 +223,15 @@ namespace TP1.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Erreur.
+        /// </summary>
+        public static string error_caption {
+            get {
+                return ResourceManager.GetString("error_caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fichier CSV non valide..
         /// </summary>
         public static string error_msg_csv {

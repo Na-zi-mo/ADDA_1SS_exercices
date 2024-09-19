@@ -17,6 +17,9 @@ namespace TP1.ViewModels
 {
     public class ElectionViewModel : BaseViewModel
     {
+        protected MessageErreur _erreur;
+        protected OpenFileDialogInput _openFileDialog;
+
         private ObservableCollection<Contribution> _contributions;
 
         private bool _isChecked;
@@ -30,8 +33,10 @@ namespace TP1.ViewModels
             }
         }
 
-        public ElectionViewModel(MessageErreur erreur, Question question, OpenFileDialogInput openFileDialog) : base(erreur, question, openFileDialog) 
+        public ElectionViewModel(MessageErreur erreur, OpenFileDialogInput openFileDialog)  
         {
+            _erreur = erreur;
+            _openFileDialog = openFileDialog;
             this.Contributions = new ObservableCollection<Contribution>();
             this.AnalyseurContributions = new AnalyseurContributions();
             this.IsChecked = false;

@@ -171,6 +171,9 @@
   <data name="column_zip_code" xml:space="preserve">
     <value>Code Postal</value>
   </data>
+  <data name="error_caption" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
   <data name="error_msg_csv" xml:space="preserve">
     <value>Fichier CSV non valide.</value>
   </data>
