@@ -8,7 +8,7 @@
         xmlns:p="clr-namespace:test.Properties"
         mc:Ignorable="d"
         Title="MainView" Height="600" Width="800" Name="win"
-        Icon="/Resources/drole.ico">
+        Icon="/Resources/AdventureTimeJake.ico">
     <!--<Window.DataContext>
         <viewmodels:MainViewModel/>
     </Window.DataContext>-->

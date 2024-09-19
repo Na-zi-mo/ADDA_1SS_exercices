@@ -39,8 +39,6 @@
         <Button Command="{Binding DeleteContributionsCmd}" Content="{x:Static p:traduction.btn_erase}" HorizontalAlignment="Left" Margin="158,37,0,0" VerticalAlignment="Top" Width="86"/>
         <TextBlock HorizontalAlignment="Left" Margin="440,41,0,0" TextWrapping="Wrap" Text="{x:Static p:traduction.lbl_Count}" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="502,41,0,0" TextWrapping="Wrap" Text="{Binding Path=Contributions.Count}" VerticalAlignment="Top" RenderTransformOrigin="0.477,1.472"/>
-        <CheckBox Content="{x:Static p:traduction.lbl_only_illegal}" FlowDirection="RightToLeft" CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Command="{Binding FilterContributionsCmd}"  HorizontalAlignment="Left" Margin="656,42,0,0" VerticalAlignment="Top" Width="148" Height="15"/>
-
-
+        <CheckBox Content="{x:Static p:traduction.lbl_only_illegal}" FlowDirection="RightToLeft" IsChecked="{Binding IsChecked, Mode=TwoWay}" Command="{Binding FilterContributionsCmd}"  HorizontalAlignment="Left" Margin="656,42,0,0" VerticalAlignment="Top" Width="148" Height="15"/>
     </Grid>
 </UserControl>

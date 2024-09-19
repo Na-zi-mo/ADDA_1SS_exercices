@@ -19,11 +19,22 @@ namespace TP1.ViewModels
     {
         private ObservableCollection<Contribution> _contributions;
 
+        private bool _isChecked;
+
+        public bool IsChecked
+        {
+            get { return _isChecked; }
+            set { 
+                _isChecked = value;
+                OnPropertyChanged(nameof(IsChecked));
+            }
+        }
 
         public ElectionViewModel(MessageErreur erreur, Question question, OpenFileDialogInput openFileDialog) : base(erreur, question, openFileDialog) 
         {
             this.Contributions = new ObservableCollection<Contribution>();
             this.AnalyseurContributions = new AnalyseurContributions();
+            this.IsChecked = false;
 
             DeleteContributionsCmd = new RelayCommand(DeleteContributions, (object? parameter) =>
             {
@@ -66,7 +77,6 @@ namespace TP1.ViewModels
 
         public void AddContributions(object? parameter)
         {
-            
             string path = _openFileDialog();
             try
             {
@@ -85,14 +95,13 @@ namespace TP1.ViewModels
         }
         public void DeleteContributions(object? parameter)
         {
+            this.IsChecked = false;
             this.Contributions.Clear();
             this.AnalyseurContributions.Contributions.Clear();
         }
 
         public void FilterContributions(object? parameter)
         {
-            bool IsChecked = (bool)parameter;
-
             if (IsChecked)
             {
                 this.Contributions = new ObservableCollection<Contribution>(AnalyseurContributions.RechercherContributionsPossiblementIllegales());
