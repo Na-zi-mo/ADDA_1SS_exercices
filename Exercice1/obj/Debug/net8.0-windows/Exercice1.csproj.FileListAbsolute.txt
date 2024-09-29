@@ -19,3 +19,24 @@ C:\Users\nazim\OneDrive - Cégep de Shawinigan\CÉGEP\_A24\DÉVELOPPEMENT SUJETS
 C:\Users\nazim\OneDrive - Cégep de Shawinigan\CÉGEP\_A24\DÉVELOPPEMENT SUJETS SPÉCIAUX\ADDA_1SS_exercices\Exercice1\obj\Debug\net8.0-windows\Exercice1.pdb
 C:\Users\nazim\OneDrive - Cégep de Shawinigan\CÉGEP\_A24\DÉVELOPPEMENT SUJETS SPÉCIAUX\ADDA_1SS_exercices\Exercice1\obj\Debug\net8.0-windows\Exercice1.genruntimeconfig.cache
 C:\Users\nazim\OneDrive - Cégep de Shawinigan\CÉGEP\_A24\DÉVELOPPEMENT SUJETS SPÉCIAUX\ADDA_1SS_exercices\Exercice1\obj\Debug\net8.0-windows\ref\Exercice1.dll
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\bin\Debug\net8.0-windows\Exercice1.exe
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\bin\Debug\net8.0-windows\Exercice1.deps.json
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\bin\Debug\net8.0-windows\Exercice1.runtimeconfig.json
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\bin\Debug\net8.0-windows\Exercice1.dll
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\bin\Debug\net8.0-windows\Exercice1.pdb
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\obj\Debug\net8.0-windows\MainWindow.g.cs
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\obj\Debug\net8.0-windows\App.g.cs
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\obj\Debug\net8.0-windows\Exercice1_MarkupCompile.cache
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\obj\Debug\net8.0-windows\Exercice1_MarkupCompile.lref
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\obj\Debug\net8.0-windows\MainWindow.baml
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\obj\Debug\net8.0-windows\Exercice1.g.resources
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\obj\Debug\net8.0-windows\Exercice1.GeneratedMSBuildEditorConfig.editorconfig
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\obj\Debug\net8.0-windows\Exercice1.AssemblyInfoInputs.cache
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\obj\Debug\net8.0-windows\Exercice1.AssemblyInfo.cs
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\obj\Debug\net8.0-windows\Exercice1.csproj.CoreCompileInputs.cache
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\obj\Debug\net8.0-windows\Exercice1.sourcelink.json
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\obj\Debug\net8.0-windows\Exercice1.dll
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\obj\Debug\net8.0-windows\refint\Exercice1.dll
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\obj\Debug\net8.0-windows\Exercice1.pdb
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\obj\Debug\net8.0-windows\Exercice1.genruntimeconfig.cache
+D:\_data\DSS\ADDA_1SS_exercices\Exercice1\obj\Debug\net8.0-windows\ref\Exercice1.dll
