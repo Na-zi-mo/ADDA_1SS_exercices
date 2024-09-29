@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,6 +48,16 @@ namespace test.ViewModels
         {
             try
             {
+                string pattern = "(\\d{3}-\\d{4})|(\\d{3}-\\d{3}-\\d{4})|((\\d{3})\\s\\d{3}-\\d{4})";
+                var regexp = new Regex(pattern);
+                if (regexp.IsMatch(Telephone))
+                {
+                    MessageBox.Show("ok");
+                }
+                else
+                {
+                    throw new Exception("No Match");
+                }
                 this.Personnes.Add(new Personne(Nom, Prenom, Telephone));
                 InitAjoutModif();
             }
