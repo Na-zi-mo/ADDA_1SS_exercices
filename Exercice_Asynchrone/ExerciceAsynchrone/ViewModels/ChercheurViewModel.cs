@@ -1,7 +1,15 @@
 ﻿using ExerciceAsynchrone.ViewModels.Commands;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using ExerciceAsynchrone.Models;
 using static ExerciceAsynchrone.ViewModels.Delegates.ViewModelDelegates;
+using System.IO;
+using System.Windows;
+using System.Windows.Documents;
+using System.Collections.Generic;
+using System.Text;
+using System;
+using System.Linq;
 
 namespace ExerciceAsynchrone.ViewModels
 {
@@ -34,10 +42,28 @@ namespace ExerciceAsynchrone.ViewModels
             if (DossierSelectionne == null) return;
             
             EnExecution = true;
-            
-            // À compléter...
+
+            Search();
 
             EnExecution = false;
+        }
+
+        private void Search()
+        {
+            Searcher searcher = new Searcher(DossierSelectionne);
+
+            List<Gutenberg> results = searcher.Search(ChaineRecherche);
+
+
+            foreach (var result in results)
+            {
+                string trouve = result.Occurences > 0 ? $"Trouvé {result.Occurences} fois" : "Non trouvé";
+
+                Resultats.Add($"{trouve} --> {result.Path}");
+            }
+
+            NbResultatsPositifs = results.Where(x => x.Occurences > 0).ToList().Count; 
+            NbFichiersTraites = results.Count;
         }
 
         private void Annuler(object? obj)
@@ -61,7 +87,7 @@ namespace ExerciceAsynchrone.ViewModels
             if (chemin != null)
             {
                 InitInfoRecherche();
-                ChaineRecherche = "";
+                //ChaineRecherche = "";
                 DossierSelectionne = chemin;
             }
         }
