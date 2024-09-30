@@ -23,6 +23,7 @@ namespace ExerciceAsynchrone.ViewModels
         private int _progression;
         private bool _enExecution;
 
+        Progress<SearchReport> _reporter;
         private Stopwatch _chronometre;
 
         public ChercheurViewModel(Info info, Erreur erreur, ChoisirDossier choisirDossier) : base(info, erreur, choisirDossier)
@@ -34,10 +35,25 @@ namespace ExerciceAsynchrone.ViewModels
             Resultats = new ObservableCollection<string>();
 
             _chronometre = new Stopwatch();
+            _reporter = new Progress<SearchReport>();
+            _reporter.ProgressChanged += UpdateSearch;
 
             CmdChoisirDossier = new RelayCommand(ChoisirDossier, null);
             CmdChercher = new AsyncCommand(Chercher, CanExecuteChercher);
             CmdAnnuler = new RelayCommand(Annuler, CanExecuteAnnuler);
+        }
+
+        private void UpdateSearch(object? sender, SearchReport report)
+        {
+            Gutenberg file = report.FilesSearched.Last();
+
+            string trouve = file.Occurences > 0 ? $"Trouvé {file.Occurences} fois" : "Non trouvé";
+
+            Resultats.Add($"{trouve} --> {file.Path}");
+
+            NbResultatsPositifs += file.Occurences > 0 ? 1 : 0;
+            NbFichiersTraites = report.FilesSearched.Count;
+            Progression = report.PourcentageCompleted;
         }
 
         private async Task Chercher(object? obj)
@@ -55,46 +71,17 @@ namespace ExerciceAsynchrone.ViewModels
 
         private async void Search()
         {
-            Searcher searcher = new Searcher(DossierSelectionne);
+            Searcher searcher = new Searcher(DossierSelectionne, _reporter);
 
 
             //Synchrone
             //List<Gutenberg> results = searcher.Search(ChaineRecherche);
 
-
-            //foreach (var result in results)
-            //{
-            //    string trouve = result.Occurences > 0 ? $"Trouvé {result.Occurences} fois" : "Non trouvé";
-
-            //    Resultats.Add($"{trouve} --> {result.Path}");
-            //}
-
-
-
             //ASynchrone
             List<Gutenberg> results = await searcher.SearchAsync(ChaineRecherche);
 
-
-            foreach (var result in results)
-            {
-                string trouve = result.Occurences > 0 ? $"Trouvé {result.Occurences} fois" : "Non trouvé";
-
-                Resultats.Add($"{trouve} --> {result.Path}");
-            }
-
             //ASynchrone When ALl
             //List<Gutenberg> results = await searcher.SearchAsyncWhenAll(ChaineRecherche);
-
-
-            //foreach (var result in results)
-            //{
-            //    string trouve = result.Occurences > 0 ? $"Trouvé {result.Occurences} fois" : "Non trouvé";
-
-            //    Resultats.Add($"{trouve} --> {result.Path}");
-            //}
-
-            NbResultatsPositifs = results.Where(x => x.Occurences > 0).ToList().Count;
-            NbFichiersTraites = results.Count;
 
             _chronometre.Stop();
 

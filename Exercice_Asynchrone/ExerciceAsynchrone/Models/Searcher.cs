@@ -17,10 +17,11 @@ namespace ExerciceAsynchrone.Models
         List<string> FileEntries { get; set; }
 
 
-        public Searcher(string dirPath)
+        public Searcher(string dirPath, IProgress<SearchReport> reporter)
         {
             DirPath = dirPath;
             FileEntries = new List<string>(Directory.GetFiles(dirPath));
+            _reporter = reporter;
         }
 
         public List<Gutenberg> Search(string regexPattern)
@@ -37,16 +38,23 @@ namespace ExerciceAsynchrone.Models
             return Results;
         }
 
+        private IProgress<SearchReport> _reporter;
+
 
         public async Task<List<Gutenberg>> SearchAsync(string regexPattern)
         {
             List<Gutenberg> Results = new List<Gutenberg>();
+
+            SearchReport Report = new SearchReport(100);
 
             for (int i = 0; i < 100; i++)
             {
                 Gutenberg File = new Gutenberg(FileEntries[i]);
 
                 Results.Add(await File.SearchOccurencesAsync(regexPattern));
+
+                Report.AddSearchedFile(File);
+                _reporter.Report(Report);
             }
 
             return Results;
