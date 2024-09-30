@@ -20,18 +20,41 @@ namespace ExerciceAsynchrone.Models
         {
             Path = path;
 
-            using (StreamReader sr = new StreamReader(Path, Encoding.UTF8))
-            {
-                Content = sr.ReadToEnd();
-            }
+            //using (StreamReader sr = new StreamReader(Path, Encoding.UTF8))
+            //{
+            //    Content = sr.ReadToEnd();
+            //}
 
         }
 
         public Gutenberg SearchOccurences(string regexPattern) { 
             var regexp = new Regex(regexPattern);
 
+            using (StreamReader sr = new StreamReader(Path, Encoding.UTF8))
+            {
+                Content = sr.ReadToEnd();
+            }
+
             List<Match> matches =  regexp.Matches(Content).ToList();
             
+            Occurences = matches.Count;
+
+            return this;
+        }
+
+        public async Task<Gutenberg> SearchOccurencesAsync(string regexPattern)
+        {
+            var regexp = new Regex(regexPattern);
+
+            //using (StreamReader sr = new StreamReader(Path, Encoding.UTF8))
+            //{
+            //    Content = await sr.ReadToEndAsync();
+            //}
+
+            Content = await File.ReadAllTextAsync(Path);
+
+            List<Match> matches = regexp.Matches(Content).ToList();
+
             Occurences = matches.Count;
 
             return this;
