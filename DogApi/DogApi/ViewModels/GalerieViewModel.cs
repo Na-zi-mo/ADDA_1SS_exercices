@@ -4,6 +4,7 @@ using System;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace DogApi.ViewModels
 {
@@ -17,7 +18,7 @@ namespace DogApi.ViewModels
         private int _nbPhotoAffichees;
         private string _races;
 
-        private Queue<string> _urlsPhoto;
+        private List<Dog> Dogs;
 
 
         public GalerieViewModel()
@@ -25,7 +26,7 @@ namespace DogApi.ViewModels
             _nbPhotoAffichees = 0;
             CmdProchainePhoto = new AsyncCommand(AfficherProchainePhoto, CanExecuteAfficherProchainePhoto);
 
-            _urlsPhoto = new Queue<string>();
+            Dogs = new List<Dog>();
         }
 
         private async Task AfficherProchainePhoto(object? obj)
@@ -34,14 +35,32 @@ namespace DogApi.ViewModels
             {
                 _enExecution = true;
 
-                if (_urlsPhoto.Count == 0)
+                if (Dogs.Count == 0)
                 {
+                    _urlPhoto = "";
+                    _nbPhotoAffichees = 0;
+                    _races = "";
+
                     ApiClient client = new ApiClient(URL_BASE_API);
 
-                    
+                    client.SetHttpRequestHeader("x-api-key", TOKEN);
 
+                    string json = await client.RequeteGetAsync("/images/search?limit=20");
+
+                    Dogs = JsonConvert.DeserializeObject<List<Dog>>(json) ?? new List<Dog>();
 
                     client.Dispose();
+                }
+                else
+                {
+                    Dog dog = Dogs[0];
+                    Dogs.RemoveAt(0);
+
+
+                    UrlPhoto = dog.url;
+                    NbPhotoAffichees = 20 - Dogs.Count;
+                    Races = dog.breeds.ToString();
+                    
                 }
             }
             catch (Exception ex) { }
