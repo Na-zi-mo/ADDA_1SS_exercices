@@ -7,7 +7,7 @@ namespace DogApi.ViewModels
     public class GalerieViewModel : BaseViewModel
     {
         private readonly static string URL_BASE_API = "https://api.thedogapi.com/v1";
-        private readonly static string TOKEN = "VOTRE_TOKEN";
+        private readonly static string TOKEN = "live_R8rDnw79hLPmnNwRc4Upmb3BNknv3unXbFxRHcC9vGU4VmJD9ueR0x0tpxf7UJrM";
 
         private string _urlPhoto;
         private bool _enExecution;
