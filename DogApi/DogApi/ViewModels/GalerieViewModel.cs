@@ -1,6 +1,9 @@
-﻿using DogApi.ViewModels.Commands;
+﻿using DogApi.Models;
+using DogApi.ViewModels.Commands;
 using System;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace DogApi.ViewModels
 {
@@ -14,11 +17,15 @@ namespace DogApi.ViewModels
         private int _nbPhotoAffichees;
         private string _races;
 
+        private Queue<string> _urlsPhoto;
+
 
         public GalerieViewModel()
         {
             _nbPhotoAffichees = 0;
             CmdProchainePhoto = new AsyncCommand(AfficherProchainePhoto, CanExecuteAfficherProchainePhoto);
+
+            _urlsPhoto = new Queue<string>();
         }
 
         private async Task AfficherProchainePhoto(object? obj)
@@ -26,6 +33,16 @@ namespace DogApi.ViewModels
             try
             {
                 _enExecution = true;
+
+                if (_urlsPhoto.Count == 0)
+                {
+                    ApiClient client = new ApiClient(URL_BASE_API);
+
+                    
+
+
+                    client.Dispose();
+                }
             }
             catch (Exception ex) { }
             finally 
