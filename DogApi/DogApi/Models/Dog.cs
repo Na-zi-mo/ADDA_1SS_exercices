@@ -16,7 +16,7 @@ namespace DogApi.Models
         public string url { get; set; }
         public int width { get; set; }
         public int height { get; set; }
-        public IList<object> breeds { get; set; }
+        public IList<Race> breeds { get; set; }
         public Favourite favourite { get; set; }
     }
 

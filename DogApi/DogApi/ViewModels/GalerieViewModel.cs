@@ -53,13 +53,17 @@ namespace DogApi.ViewModels
                 }
                 else
                 {
+                    Races = "";
                     Dog dog = Dogs[0];
                     Dogs.RemoveAt(0);
 
 
                     UrlPhoto = dog.url;
                     NbPhotoAffichees = 20 - Dogs.Count;
-                    Races = dog.breeds.ToString();
+
+                    string temp = string.Empty;
+                    foreach (var r in dog.breeds)
+                        Races += r.name;
                     
                 }
             }
