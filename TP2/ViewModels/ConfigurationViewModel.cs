@@ -28,10 +28,7 @@ namespace TP2.ViewModels
         {
             _closeWindow = closeWindow;
 
-            SaveConfigurationCmd = new RelayCommand(SaveConfiguration, (object? parameter) =>
-            {
-                return Token != string.Empty;
-            });
+            SaveConfigurationCmd = new RelayCommand(SaveConfiguration, null);
             CancelConfigurationCmd = new RelayCommand(CancelConfiguration, null);
         }
 
