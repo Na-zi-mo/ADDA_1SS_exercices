@@ -47,8 +47,6 @@ namespace TP2.ViewModels
 
                 string json = await client.RequeteGetAsync($"/detect?q={Text}");
 
-                List<Detection> detections = new List<Detection>();
-
                 LanguageDetector languageDetector = JsonConvert.DeserializeObject<LanguageDetector>(json) ?? new LanguageDetector();
 
                 Detections = new ObservableCollection<Detection>(languageDetector.data.detections);
