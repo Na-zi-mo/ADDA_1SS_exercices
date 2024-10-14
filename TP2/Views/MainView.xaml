@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TP2.Views"
         xmlns:viewmodels="clr-namespace:TP2.ViewModels"
         mc:Ignorable="d"
-        Title="MainView" Height="450" Width="800" Name="win" >
+        Title="Détecteur de langues" Height="450" Width="800" Name="win" >
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewmodels:LanguageDetectorViewModel}">
             <local:LanguageDetectorView/>
