@@ -16,8 +16,8 @@ namespace TP2.ViewModels
     {
         private string _text = string.Empty;
         private bool _enExecution;
-        private ObservableCollection<Detection> _detections;
-        private Detection _currentDetection;
+        private ObservableCollection<Detection>? _detections;
+        private Detection? _currentDetection;
 
 
         public LanguageDetectorViewModel()

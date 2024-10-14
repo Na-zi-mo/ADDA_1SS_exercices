@@ -4,8 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TP2.Views"
+             xmlns:converters="clr-namespace:TP2.ViewModels.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="Beige">
+    <UserControl.Resources>
+        <converters:BoolToReliableConverter x:Key="boolToReliable" />
+    </UserControl.Resources>
     <Grid>
         <TextBox AcceptsReturn="True" AcceptsTab="True" HorizontalAlignment="Left" Margin="47,53,0,0" TextWrapping="Wrap" Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="353" Height="245"/>
         <Button Command="{Binding DetectLanguageCmd}" Content="Détecter" HorizontalAlignment="Left" Margin="96,313,0,0" VerticalAlignment="Top" Width="255" Height="20"/>
@@ -18,6 +22,6 @@
         <TextBlock HorizontalAlignment="Left" Margin="614,186,0,0" TextWrapping="Wrap" Text="{Binding Path=CurrentDetection.confidence}" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="531,225,0,0" TextWrapping="Wrap" Text="Est fiable : " VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="614,225,0,0" TextWrapping="Wrap" Text="{Binding Path=CurrentDetection.isReliable}" VerticalAlignment="Top"/>
-
+        
     </Grid>
 </UserControl>
