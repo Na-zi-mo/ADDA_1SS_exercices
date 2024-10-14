@@ -12,6 +12,7 @@ namespace TP2.ViewModels
     public class LanguageDetectorViewModel : BaseViewModel
     {
         private string _text = string.Empty;
+        private bool _enExecution;
 
         
 
@@ -21,11 +22,24 @@ namespace TP2.ViewModels
 
             DetectLanguageCmd = new AsyncCommand(DetectLanguage, (object? parameter) =>
             {
-                return Text.Trim().Length > 0;
+                return (!_enExecution && Text.Trim().Length > 0);
             });
         }
         private async Task DetectLanguage(object? obj)
         {
+            try
+            {
+                _enExecution = true;
+
+                //await Task.Delay(2000);
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                _enExecution = false;
+            }
         }
 
         public string Text
