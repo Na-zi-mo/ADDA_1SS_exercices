@@ -11,13 +11,13 @@
         <Button Command="{Binding DetectLanguageCmd}" Content="Détecter" HorizontalAlignment="Left" Margin="96,313,0,0" VerticalAlignment="Top" Width="255" Height="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="47,23,0,0" TextWrapping="Wrap" Text="Entrez le texte pour lequel vous voulez détecter la langue:" VerticalAlignment="Top" Height="30" Width="353"/>
         <TextBlock HorizontalAlignment="Left" Margin="429,25,0,0" TextWrapping="Wrap" Text="Résultat de la détection:" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="531,70,0,0" VerticalAlignment="Top" Width="166" Height="25"/>
+        <ComboBox ItemsSource="{Binding Path=Detections}" SelectedItem = "{Binding Path=CurrentDetection}"  DisplayMemberPath="language"  HorizontalAlignment="Left" Margin="531,70,0,0" VerticalAlignment="Top" Width="166" Height="25"/>
         <TextBlock HorizontalAlignment="Left" Margin="531,145,0,0" TextWrapping="Wrap" Text="Langue : " VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="614,145,0,0" TextWrapping="Wrap" Text="{Binding Language}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="614,145,0,0" TextWrapping="Wrap" Text="{Binding Path=CurrentDetection.language}" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="531,186,0,0" TextWrapping="Wrap" Text="Confiance : " VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="614,186,0,0" TextWrapping="Wrap" Text="{Binding Confidence}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="614,186,0,0" TextWrapping="Wrap" Text="{Binding Path=CurrentDetection.confidence}" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="531,225,0,0" TextWrapping="Wrap" Text="Est fiable : " VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="614,225,0,0" TextWrapping="Wrap" Text="{Binding IsReliable}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="614,225,0,0" TextWrapping="Wrap" Text="{Binding Path=CurrentDetection.isReliable}" VerticalAlignment="Top"/>
 
     </Grid>
 </UserControl>

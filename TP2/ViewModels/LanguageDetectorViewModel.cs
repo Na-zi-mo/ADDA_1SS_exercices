@@ -8,58 +8,27 @@ using TP2.ViewModels.Commands;
 using TP2.Views;
 using TP2.Models;
 using Newtonsoft.Json;
+using System.Collections.ObjectModel;
 
 namespace TP2.ViewModels
 {
     public class LanguageDetectorViewModel : BaseViewModel
     {
         private string _text = string.Empty;
-
-        private string _language;
-
-        public string Language
-        {
-            get { return _language; }
-            set {
-                _language = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private double _confidence;
-
-        public double Confidence
-        {
-            get { return _confidence; }
-            set { 
-                _confidence = value; 
-                OnPropertyChanged();  
-            }
-        }
-
-        private bool _isReliable;
-
-        public bool IsReliable
-        {
-            get { return _isReliable; }
-            set {
-                _isReliable = value;
-                OnPropertyChanged();
-            }
-        }
         private bool _enExecution;
-
-        
+        private ObservableCollection<Detection> _detections;
+        private Detection _currentDetection;
 
 
         public LanguageDetectorViewModel()
         {
-
+            Detections = new ObservableCollection<Detection>(); 
             DetectLanguageCmd = new AsyncCommand(DetectLanguage, (object? parameter) =>
             {
                 return (!_enExecution && Text.Trim().Length > 0);
             });
         }
+
         private async Task DetectLanguage(object? obj)
         {
             try
@@ -76,13 +45,9 @@ namespace TP2.ViewModels
 
                 LanguageDetector languageDetector = JsonConvert.DeserializeObject<LanguageDetector>(json) ?? new LanguageDetector();
 
-                MessageBox.Show($"{languageDetector.data.detections.Count}");
+                Detections = new ObservableCollection<Detection>(languageDetector.data.detections);
 
-                Language = languageDetector.data.detections[0].language;
-
-                Confidence = languageDetector.data.detections[0].confidence;
-
-                IsReliable = languageDetector.data.detections[0].isReliable;
+                CurrentDetection = Detections[0];
 
                 client.Dispose();
 
@@ -105,6 +70,29 @@ namespace TP2.ViewModels
                 OnPropertyChanged(nameof(Text));
             }
         }
+        public ObservableCollection<Detection> Detections
+        {
+            get { return _detections; }
+            set
+            {
+                _detections = value;
+                OnPropertyChanged();
+            }
+        }
+        public Detection CurrentDetection
+        {
+            get { return _currentDetection; }
+            set
+            {
+                if (value != null)
+                {
+                    _currentDetection = value;
+                    OnPropertyChanged();
+                }
+
+            }
+        }
+
 
         public AsyncCommand DetectLanguageCmd { get; set; }
     }
