@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using TP2.ViewModels.Commands;
 using TP2.Views;
+using TP2.Models;
 
 namespace TP2.ViewModels
 {
@@ -31,7 +32,14 @@ namespace TP2.ViewModels
             {
                 _enExecution = true;
 
-                //await Task.Delay(2000);
+                ApiClient client = new ApiClient("https://ws.detectlanguage.com/0.2");
+
+                client.SetHttpRequestHeader("Authorization", "Bearer " + "7edd3ef1b07ec37d12032e2045b14391");
+
+                string json = await client.RequeteGetAsync($"/detect?q={Text}");
+
+                client.Dispose();
+
             }
             catch (Exception)
             {
