@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TP2.Views"
              xmlns:converters="clr-namespace:TP2.ViewModels.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="Beige">
+             d:DesignHeight="450" d:DesignWidth="800" Background="Salmon">
     <UserControl.Resources>
         <converters:BoolToReliableConverter x:Key="boolToReliable" />
     </UserControl.Resources>
