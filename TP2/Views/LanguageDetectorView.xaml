@@ -13,11 +13,11 @@
         <TextBlock HorizontalAlignment="Left" Margin="429,25,0,0" TextWrapping="Wrap" Text="Résultat de la détection:" VerticalAlignment="Top"/>
         <ComboBox HorizontalAlignment="Left" Margin="531,70,0,0" VerticalAlignment="Top" Width="166" Height="25"/>
         <TextBlock HorizontalAlignment="Left" Margin="531,145,0,0" TextWrapping="Wrap" Text="Langue : " VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="614,145,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="614,145,0,0" TextWrapping="Wrap" Text="{Binding Language}" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="531,186,0,0" TextWrapping="Wrap" Text="Confiance : " VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="614,186,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="614,186,0,0" TextWrapping="Wrap" Text="{Binding Confidence}" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="531,225,0,0" TextWrapping="Wrap" Text="Est fiable : " VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="614,225,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="614,225,0,0" TextWrapping="Wrap" Text="{Binding IsReliable}" VerticalAlignment="Top"/>
 
     </Grid>
 </UserControl>
