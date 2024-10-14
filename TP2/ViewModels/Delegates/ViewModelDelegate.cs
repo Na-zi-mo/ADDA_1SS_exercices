@@ -10,5 +10,6 @@ namespace TP2.ViewModels.Delegates
     {
         public delegate void OpenConfigurationWindow();
         public delegate void CloseConfigurationWIndow();
+        public delegate void ErrorDialog(string message);
     }
 }

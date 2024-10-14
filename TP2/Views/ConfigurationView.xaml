@@ -8,9 +8,9 @@
         Title="ConfigurationView" Height="350" Width="300">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="55,56,0,0" TextWrapping="Wrap" Text="Jeton :" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="95,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175"/>
-        <Button Content="Sauvegarder" HorizontalAlignment="Left" Margin="19,258,0,0" VerticalAlignment="Top" Width="119"/>
-        <Button Content="Annuler" HorizontalAlignment="Left" Margin="155,258,0,0" VerticalAlignment="Top" Width="112"/>
+        <TextBox HorizontalAlignment="Left" Margin="95,56,0,0" TextWrapping="Wrap" Text="{Binding Token, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="175"/>
+        <Button Command="{Binding SaveConfigurationCmd}" Content="Sauvegarder" HorizontalAlignment="Left" Margin="19,258,0,0" VerticalAlignment="Top" Width="119"/>
+        <Button Command="{Binding CancelConfigurationCmd}" Content="Annuler" HorizontalAlignment="Left" Margin="155,258,0,0" VerticalAlignment="Top" Width="112"/>
 
     </Grid>
 </Window>

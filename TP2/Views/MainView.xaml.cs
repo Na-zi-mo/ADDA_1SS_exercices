@@ -25,13 +25,17 @@ namespace TP2.Views
         public MainView()
         {
             InitializeComponent();
-            DataContext = new MainViewModel(OpenConfigurationWindow);
+            DataContext = new MainViewModel(OpenConfigurationWindow, DisplayMessageError);
         }
 
         public void OpenConfigurationWindow()
         {
             ConfigurationView configView = new ConfigurationView();
             configView.ShowDialog();
+        }
+        public void DisplayMessageError(string message)
+        {
+            MessageBox.Show(message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

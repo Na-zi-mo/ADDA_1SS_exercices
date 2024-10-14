@@ -9,6 +9,7 @@ using TP2.Views;
 using TP2.Models;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
+using static TP2.ViewModels.Delegates.ViewModelDelegate;
 
 namespace TP2.ViewModels
 {
@@ -19,9 +20,11 @@ namespace TP2.ViewModels
         private ObservableCollection<Detection>? _detections;
         private Detection? _currentDetection;
 
+        protected ErrorDialog _errorDialog;
 
-        public LanguageDetectorViewModel()
+        public LanguageDetectorViewModel(ErrorDialog errorDialog)
         {
+            _errorDialog = errorDialog;
             Detections = new ObservableCollection<Detection>(); 
             DetectLanguageCmd = new AsyncCommand(DetectLanguage, (object? parameter) =>
             {
@@ -35,9 +38,12 @@ namespace TP2.ViewModels
             {
                 _enExecution = true;
 
+                if (TP2.Properties.Settings.Default.token == string.Empty ) 
+                    throw new Exception("Veuillez configurer le jeton de l'API dans la configuration avant de faire une requête.");
+
                 ApiClient client = new ApiClient("https://ws.detectlanguage.com/0.2");
 
-                client.SetHttpRequestHeader("Authorization", "Bearer " + "7edd3ef1b07ec37d12032e2045b14391");
+                client.SetHttpRequestHeader("Authorization", "Bearer " + TP2.Properties.Settings.Default.token);
 
                 string json = await client.RequeteGetAsync($"/detect?q={Text}");
 
@@ -52,8 +58,9 @@ namespace TP2.ViewModels
                 client.Dispose();
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                _errorDialog(e.Message);
             }
             finally
             {
@@ -70,7 +77,7 @@ namespace TP2.ViewModels
                 OnPropertyChanged(nameof(Text));
             }
         }
-        public ObservableCollection<Detection> Detections
+        public ObservableCollection<Detection>? Detections
         {
             get { return _detections; }
             set
@@ -79,7 +86,7 @@ namespace TP2.ViewModels
                 OnPropertyChanged();
             }
         }
-        public Detection CurrentDetection
+        public Detection? CurrentDetection
         {
             get { return _currentDetection; }
             set

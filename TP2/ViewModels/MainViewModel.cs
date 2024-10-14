@@ -17,10 +17,10 @@ namespace TP2.ViewModels
 
         protected OpenConfigurationWindow _openConfigurationWindow;
 
-        public MainViewModel(OpenConfigurationWindow openConfigurationWindow)
+        public MainViewModel(OpenConfigurationWindow openConfigurationWindow, ErrorDialog errorDialog)
         {
             _openConfigurationWindow = openConfigurationWindow;
-            _languageDetectorViewModel = new LanguageDetectorViewModel();
+            _languageDetectorViewModel = new LanguageDetectorViewModel(errorDialog);
             ViewModelActuel = _languageDetectorViewModel;
             OpenConfigurationWindowCmd = new RelayCommand(DisplayConfiguration, null);
         }

@@ -22,6 +22,5 @@
         <TextBlock HorizontalAlignment="Left" Margin="614,186,0,0" TextWrapping="Wrap" Text="{Binding Path=CurrentDetection.confidence}" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="531,225,0,0" TextWrapping="Wrap" Text="Est fiable : " VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="614,225,0,0" TextWrapping="Wrap" Text="{Binding Path=CurrentDetection.isReliable, Converter={StaticResource ResourceKey=boolToReliable}}" VerticalAlignment="Top"/>
-        
     </Grid>
 </UserControl>

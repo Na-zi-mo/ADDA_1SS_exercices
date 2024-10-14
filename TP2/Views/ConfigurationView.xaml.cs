@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TP2.ViewModels;
 
 namespace TP2.Views
 {
@@ -22,6 +23,12 @@ namespace TP2.Views
         public ConfigurationView()
         {
             InitializeComponent();
+            DataContext = new ConfigurationViewModel(CloseWindow);
+        }
+
+        public void CloseWindow()
+        {
+            this.Close();
         }
     }
 }
