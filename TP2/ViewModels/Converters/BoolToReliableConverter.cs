@@ -4,19 +4,17 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 
 namespace TP2.ViewModels.Converters
 {
-    public class BoolToReliableConverter
+    public class BoolToReliableConverter : IValueConverter
     {
         // Conv Model To View
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is bool isReliable)
-            {
-                return isReliable ? "Oui" : "Non";
-            }
-            return "";
+            bool isReliable = (bool)value;
+            return isReliable ? "Oui" : "Non";
         }
 
         // Conv View To Model
