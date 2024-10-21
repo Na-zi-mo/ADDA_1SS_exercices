@@ -1,0 +1,16 @@
+﻿{
+  "defaultAssembly": "ExerciceInjection",
+  "components": [
+    {
+      "type": "ExerciceInjection.Views.InteractionUtilisateurGui",
+      "services": [
+        {
+          "type": "ExerciceInjection.ViewModels.Interfaces.IInteractionUtilisateur"
+        }
+      ]
+    },
+    {
+      "type": "ExerciceInjection.ViewModels.MainViewModel"
+    }
+  ]
+}

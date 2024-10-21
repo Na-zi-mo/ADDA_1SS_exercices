@@ -1,7 +1,9 @@
-﻿namespace ExerciceInjection.ViewModels
+﻿using ExerciceInjection.ViewModels.Interfaces;
+
+namespace ExerciceInjection.ViewModels
 {
     public class AccueilViewModel : BaseViewModel
     {
-        public AccueilViewModel(){ }
+        public AccueilViewModel(IInteractionUtilisateur interaction) : base(interaction) { }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ExerciceInjection.ViewModels.Commands;
+using ExerciceInjection.ViewModels.Interfaces;
 using System;
 using System.Windows;
 
@@ -10,10 +11,10 @@ namespace ExerciceInjection.ViewModels
         private AccueilViewModel _accueilViewModel;
         private PersonneViewModel _personneViewModel;
 
-        public MainViewModel()
+        public MainViewModel(IInteractionUtilisateur interaction) : base(interaction)
         {
-            _accueilViewModel = new AccueilViewModel();
-            _personneViewModel = new PersonneViewModel();
+            _accueilViewModel = new AccueilViewModel(interaction);
+            _personneViewModel = new PersonneViewModel(interaction);
             _viewModelActuel = _personneViewModel;
             CmdGotoAccueil = new RelayCommand(GotoAccueil, null);
             CmdGotoPersonne = new RelayCommand(GotoPersonne, null);

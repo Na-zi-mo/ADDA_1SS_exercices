@@ -1,5 +1,6 @@
 ﻿using ExerciceInjection.Models;
 using ExerciceInjection.ViewModels.Commands;
+using ExerciceInjection.ViewModels.Interfaces;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -15,7 +16,7 @@ namespace ExerciceInjection.ViewModels
         private bool _modeAjout;
 
 
-        public PersonneViewModel()
+        public PersonneViewModel(IInteractionUtilisateur interaction) : base(interaction)
         {
             this.Personnes = new ObservableCollection<Personne>();
 
@@ -41,7 +42,8 @@ namespace ExerciceInjection.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, ExerciceInjection.Properties.traduction.titre_erreur, MessageBoxButton.OK, MessageBoxImage.Error);
+                _interaction.MessageErreur(ex.Message);
+                //MessageBox.Show(ex.Message, ExerciceInjection.Properties.traduction.titre_erreur, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

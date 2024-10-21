@@ -1,4 +1,5 @@
-﻿using ExerciceInjection.ViewModels;
+﻿using Autofac;
+using ExerciceInjection.ViewModels;
 using System.Windows;
 
 namespace ExerciceInjection.Views
@@ -8,7 +9,7 @@ namespace ExerciceInjection.Views
         public MainView()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
+            DataContext = FournisseurDI.Container.Resolve<MainViewModel>();
         } 
     }
 }

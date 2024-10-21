@@ -1,13 +1,16 @@
-﻿using System.ComponentModel;
+﻿using ExerciceInjection.ViewModels.Interfaces;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace ExerciceInjection.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
+        protected IInteractionUtilisateur _interaction;
 
-        public BaseViewModel() 
+        public BaseViewModel(IInteractionUtilisateur interaction)
         {
+            _interaction = interaction;
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
