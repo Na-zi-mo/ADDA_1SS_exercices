@@ -1,0 +1,50 @@
+﻿<Window x:Class="ExerciceInjection.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:p="clr-namespace:ExerciceInjection.Properties"
+        xmlns:local="clr-namespace:ExerciceInjection.Views"
+        xmlns:viewmodels="clr-namespace:ExerciceInjection.ViewModels"
+        mc:Ignorable="d"
+        Title="Injection de dépendances" 
+        Height="525" Width="825" 
+        ResizeMode="CanMinimize"
+        x:Name="win"
+        Icon="/Resources/drole.ico">
+    
+    <!-- D'où vient le DataContext -->
+    <!--<Window.DataContext>
+        <viewmodels:MainViewModel/>
+    </Window.DataContext>-->
+    
+    <!-- Permet d'indiquer que les données des ViewModels sont liées à quelles Views -->
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:AccueilViewModel}">
+            <local:AccueilView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:PersonneViewModel}">
+            <local:PersonneView/>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid Background="White" Margin="0,0,0,0" VerticalAlignment="Top" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Menu Width="{Binding ElementName=win, Path=Width}">
+            <MenuItem Header="{x:Static p:traduction.menu_accueil}" Command="{Binding CmdGotoAccueil}"  />
+            <MenuItem Header="{x:Static p:traduction.menu_personnes}" Command="{Binding CmdGotoPersonne}"   />
+            <MenuItem Header="{x:Static p:traduction.menu_langue}">
+                <MenuItem Header="{x:Static p:traduction.menu_francais}" Command="{Binding CmdChangerLangue}" CommandParameter="fr-CA" />
+                <MenuItem Header="{x:Static p:traduction.menu_anglais}" Command="{Binding CmdChangerLangue}"  CommandParameter="en-US" />
+            </MenuItem>
+        </Menu>
+
+           <!-- Pour indiquer quel View/ViewModel doit être affiché -->
+        <ContentControl Grid.Row="1" Content="{Binding ViewModelActuel}" Margin="0, 20, 0, 0" />
+    </Grid>
+</Window>
+
