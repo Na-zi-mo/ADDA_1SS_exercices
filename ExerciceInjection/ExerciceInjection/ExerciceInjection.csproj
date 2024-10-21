@@ -10,6 +10,12 @@
     <None Remove="Resources\sqlite-script.sql" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="8.1.1" />
+    <PackageReference Include="Autofac.Configuration" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.1" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Resources\drole.ico" />
     <Resource Include="Resources\sqlite-script.sql" />
   </ItemGroup>
