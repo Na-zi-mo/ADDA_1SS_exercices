@@ -75,7 +75,8 @@ namespace ExerciceInjection.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, ExerciceInjection.Properties.traduction.titre_erreur, MessageBoxButton.OK, MessageBoxImage.Error);
+                    _interaction.MessageErreur(ex.Message);
+                    //MessageBox.Show(ex.Message, ExerciceInjection.Properties.traduction.titre_erreur, MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
