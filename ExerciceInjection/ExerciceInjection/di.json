@@ -29,6 +29,14 @@
       ]
     },
     {
+      "type": "ExerciceInjection.Models.PersonneSurFichierDataService",
+      "services": [
+        {
+          "type": "ExerciceInjection.ViewModels.Interfaces.IDataService`1[[ExerciceInjection.Models.Personne]]"
+        }
+      ]
+    },
+    {
       "type": "ExerciceInjection.ViewModels.PersonneViewModel"
     }
   ]

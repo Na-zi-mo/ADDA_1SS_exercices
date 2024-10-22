@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 1,
+    "Nom": "Carnaval",
+    "Prenom": "Bonhomme",
+    "Telephone": "418-123-4567"
+  },
+  {
+    "Id": 2,
+    "Nom": "Gratton",
+    "Prenom": "Bob",
+    "Telephone": "450-659-8854"
+  },
+  {
+    "Id": 3,
+    "Nom": "Troudeau",
+    "Prenom": "Justun",
+    "Telephone": "514-465-4785"
+  },
+  {
+    "Id": 3,
+    "Nom": "Doué",
+    "Prenom": "Jél",
+    "Telephone": "819-567-0191"
+  }
+]

@@ -1,5 +1,6 @@
 ﻿using ExerciceInjection.ViewModels.Interfaces;
 using Microsoft.Data.Sqlite;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,9 +22,15 @@ namespace ExerciceInjection.Models
 
         public PersonneSurFichierDataService()
         {
-            if (!File.Exists("personnes.json"))
+            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "personnes.json");
+            if (!File.Exists(path))
             {
-                
+                //string jsonString = JsonConvert.SerializeObject(new Personne[] {});
+
+                string jsonString = JsonConvert.SerializeObject(_personnes, Formatting.Indented);
+
+                // Write to a file
+                File.WriteAllText(path, jsonString);
             }
         }
 
