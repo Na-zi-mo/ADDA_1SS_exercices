@@ -5,7 +5,7 @@ namespace ExerciceInjection.Views
 {
     public class InteractionUtilisateurGui : IInteractionUtilisateur
     {
-        public void MessageErreur(string message)
+        public void AfficherMessageErreur(string message)
         {
             MessageBox.Show(message, "Erreur!", MessageBoxButton.OK, MessageBoxImage.Error);
         }

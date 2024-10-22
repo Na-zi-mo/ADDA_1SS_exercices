@@ -42,7 +42,7 @@ namespace ExerciceInjection.ViewModels
             }
             catch (Exception ex)
             {
-                _interaction.MessageErreur(ex.Message);
+                _interaction.AfficherMessageErreur(ex.Message);
                 //MessageBox.Show(ex.Message, ExerciceInjection.Properties.traduction.titre_erreur, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -75,7 +75,7 @@ namespace ExerciceInjection.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    _interaction.MessageErreur(ex.Message);
+                    _interaction.AfficherMessageErreur(ex.Message);
                     //MessageBox.Show(ex.Message, ExerciceInjection.Properties.traduction.titre_erreur, MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }

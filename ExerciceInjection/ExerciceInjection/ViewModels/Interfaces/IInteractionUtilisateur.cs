@@ -2,6 +2,6 @@
 {
     public interface IInteractionUtilisateur
     {
-        void MessageErreur(string message);
+        void AfficherMessageErreur(string message);
     }
 }
