@@ -26,10 +26,8 @@ namespace ExerciceInjection.ViewModels
             ExerciceInjection.Properties.Settings.Default.langue = obj as string;
             ExerciceInjection.Properties.Settings.Default.Save();
 
-            var resultat = MessageBox.Show(ExerciceInjection.Properties.traduction.msg_confirmation_redemarrage, ExerciceInjection.Properties.traduction.titre_question, MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (resultat == MessageBoxResult.Yes)
+            if ( _interaction.PoserQuestion(ExerciceInjection.Properties.traduction.msg_confirmation_redemarrage, ExerciceInjection.Properties.traduction.titre_question) )
             {
-                //System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
                 System.Diagnostics.Process.Start(fileName: Environment.ProcessPath);
                 Application.Current.Shutdown();
             }

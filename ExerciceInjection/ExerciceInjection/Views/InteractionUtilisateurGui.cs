@@ -9,5 +9,12 @@ namespace ExerciceInjection.Views
         {
             MessageBox.Show(message, "Erreur!", MessageBoxButton.OK, MessageBoxImage.Error);
         }
+
+        public bool PoserQuestion(string question, string titreQuestion)
+        {
+            var result =  MessageBox.Show(question, titreQuestion,MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes) return true;
+            else return false;        
+        }
     }
 }

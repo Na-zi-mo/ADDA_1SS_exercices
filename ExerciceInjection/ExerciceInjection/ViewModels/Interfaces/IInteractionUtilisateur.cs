@@ -2,6 +2,7 @@
 {
     public interface IInteractionUtilisateur
     {
-        void AfficherMessageErreur(string message);
+        public void AfficherMessageErreur(string message);
+        public bool PoserQuestion(string question, string titreQuestion);
     }
 }
