@@ -2,7 +2,9 @@
 using ExerciceInjection.ViewModels.Commands;
 using ExerciceInjection.ViewModels.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 
 namespace ExerciceInjection.ViewModels
@@ -39,7 +41,11 @@ namespace ExerciceInjection.ViewModels
             try
             {
                 Personne personne = new Personne(0, Nom, Prenom, Telephone);
-                this.Personnes.Add(personne);
+                
+                _dataService.Insert(personne);
+
+                //this.Personnes.Add(personne);
+
                 InitAjoutModif();
             }
             catch (Exception ex)
@@ -50,7 +56,12 @@ namespace ExerciceInjection.ViewModels
 
         private void SupprimerTout(object? obj)
         {
-            this.Personnes.Clear();
+            foreach (var personne in this.Personnes)
+            {
+                _dataService.Delete(personne);
+            }
+
+            //this.Personnes.Clear();
             InitAjoutModif();
         }
 
@@ -58,7 +69,8 @@ namespace ExerciceInjection.ViewModels
         {
             if (PersonneSelectionnee != null)
             {
-                this.Personnes.Remove(PersonneSelectionnee);
+                _dataService.Delete(PersonneSelectionnee);
+                //this.Personnes.Remove(PersonneSelectionnee);
             }
             InitAjoutModif();
         }
@@ -72,6 +84,9 @@ namespace ExerciceInjection.ViewModels
                     this.PersonneSelectionnee.Nom = Nom;
                     this.PersonneSelectionnee.Prenom = Prenom;
                     this.PersonneSelectionnee.Telephone = Telephone;
+
+                    this._dataService.Update(PersonneSelectionnee);
+
                     InitAjoutModif();
                 }
                 catch (Exception ex)
@@ -92,6 +107,9 @@ namespace ExerciceInjection.ViewModels
             Prenom = string.Empty;
             Telephone = string.Empty;
             ModeAjout = true;
+
+            this.Personnes = new ObservableCollection<Personne>(_dataService.GetAll());
+
         }
 
         public RelayCommand CmdAjouterPersonne { get; private set; }
@@ -104,7 +122,17 @@ namespace ExerciceInjection.ViewModels
 
         public RelayCommand CmdSupprimerTout { get; private set; }
 
-        public ObservableCollection<Personne> Personnes { get; set; }
+        private ObservableCollection<Personne> _personnes;
+
+        public ObservableCollection<Personne> Personnes
+        {
+            get => _personnes;
+            set
+            {
+                _personnes = value;
+                OnPropertyChanged(); 
+            }
+        }
 
         public Personne? PersonneSelectionnee
         {
