@@ -12,8 +12,16 @@
     {
       "type": "ExerciceInjection.ViewModels.MainViewModel"
     },
+    //{
+    //  "type": "ExerciceInjection.Models.PersonneEnMemoireDataService",
+    //  "services": [
+    //    {
+    //      "type": "ExerciceInjection.ViewModels.Interfaces.IDataService`1[[ExerciceInjection.Models.Personne]]"
+    //    }
+    //  ]
+    //},
     {
-      "type": "ExerciceInjection.Models.PersonneEnMemoireDataService",
+      "type": "ExerciceInjection.Models.PersonneSqliteDataService",
       "services": [
         {
           "type": "ExerciceInjection.ViewModels.Interfaces.IDataService`1[[ExerciceInjection.Models.Personne]]"
