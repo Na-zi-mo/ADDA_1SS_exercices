@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ExerciceInjection.Models
 {
-    public class PersonneSqliteDataService : IDataService<Personne>
+    public class PersonneEnMemoireDataService : IDataService<Personne>
     {
         private List<Personne> _personnes = new List<Personne>
     {

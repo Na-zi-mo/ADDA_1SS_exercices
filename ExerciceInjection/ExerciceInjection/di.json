@@ -13,7 +13,7 @@
       "type": "ExerciceInjection.ViewModels.MainViewModel"
     },
     {
-      "type": "ExerciceInjection.Models.PersonneSqliteDataService",
+      "type": "ExerciceInjection.Models.PersonneEnMemoireDataService",
       "services": [
         {
           "type": "ExerciceInjection.ViewModels.Interfaces.IDataService`1[[ExerciceInjection.Models.Personne]]"
