@@ -2,6 +2,7 @@
 using ExerciceInjection.ViewModels.Interfaces;
 using System;
 using System.Windows;
+using ExerciceInjection.Models;
 
 namespace ExerciceInjection.ViewModels
 {
@@ -11,10 +12,10 @@ namespace ExerciceInjection.ViewModels
         private AccueilViewModel _accueilViewModel;
         private PersonneViewModel _personneViewModel;
 
-        public MainViewModel(IInteractionUtilisateur interaction) : base(interaction)
+        public MainViewModel(IInteractionUtilisateur interaction, IDataService<Personne> dataService) : base(interaction)
         {
             _accueilViewModel = new AccueilViewModel(interaction);
-            _personneViewModel = new PersonneViewModel(interaction);
+            _personneViewModel = new PersonneViewModel(interaction, dataService);
             _viewModelActuel = _personneViewModel;
             CmdGotoAccueil = new RelayCommand(GotoAccueil, null);
             CmdGotoPersonne = new RelayCommand(GotoPersonne, null);

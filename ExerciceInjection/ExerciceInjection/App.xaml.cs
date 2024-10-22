@@ -3,6 +3,10 @@ using Autofac;
 using Microsoft.Extensions.Configuration;
 using System.Threading;
 using System.Windows;
+using ExerciceInjection.ViewModels.Interfaces;
+using ExerciceInjection.ViewModels;
+using ExerciceInjection.Views;
+using ExerciceInjection.Models;
 
 namespace ExerciceInjection
 {

@@ -15,10 +15,12 @@ namespace ExerciceInjection.ViewModels
         private string _telephone;
         private bool _modeAjout;
 
-
-        public PersonneViewModel(IInteractionUtilisateur interaction) : base(interaction)
+        protected IDataService<Personne> _dataService;
+        public PersonneViewModel(IInteractionUtilisateur interaction, IDataService<Personne> dataService) : base(interaction)
         {
-            this.Personnes = new ObservableCollection<Personne>();
+            _dataService = dataService;
+
+            this.Personnes = new ObservableCollection<Personne>(_dataService.GetAll());
 
             Nom = string.Empty;
             Prenom = string.Empty;
