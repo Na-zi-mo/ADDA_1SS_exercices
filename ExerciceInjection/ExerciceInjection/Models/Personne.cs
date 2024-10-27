@@ -15,12 +15,12 @@ namespace ExerciceInjection.Models
         private string _prenom;
         private string _telephone;
 
-        internal Personne(long id, string nom, string prenom, string telephone)
+        public Personne(long Id, string Nom, string Prenom, string Telephone)
         {
-            Id = id;
-            Nom = nom;
-            Prenom = prenom;
-            Telephone = telephone;
+            this.Id = Id;
+            this.Nom = Nom;
+            this.Prenom = Prenom;
+            this.Telephone = Telephone;
         }
 
         public long Id
