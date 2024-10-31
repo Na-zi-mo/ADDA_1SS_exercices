@@ -1,4 +1,5 @@
 using ExerciceMockEtTdd.Models;
+using ExerciceMockEtTdd.ViewModels;
 using ExerciceMockEtTdd.ViewModels.Interfaces;
 using Moq;
 
@@ -24,6 +25,18 @@ namespace ExercicesMocksEtTdd.Tests
         {
             // Préparation
             _pDataService.Setup(pds => pds.GetAll()).Returns(ListePersonnesAttendues());
+
+            // Exécution. PersonneViewModel utilisera nos mocks et non des classes "réelles".
+            PersonneViewModel pvm = new PersonneViewModel(_interUtilMock.Object, _pDataService.Object);
+
+            // Affirmation
+            Assert.Equal(3, pvm.Personnes.Count);
+            Assert.Equal(ListePersonnesAttendues(), pvm.Personnes);
+            Assert.Empty(pvm.Nom);
+            Assert.Empty(pvm.Prenom);
+            Assert.Empty(pvm.Telephone);
+            Assert.True(pvm.ModeAjout);
+            Assert.Null(pvm.PersonneSelectionnee);
         }
 
         private List<Personne> ListePersonnesAttendues()
@@ -34,12 +47,6 @@ namespace ExercicesMocksEtTdd.Tests
             new Personne(2, "Gratton", "Bob", "450-659-8854"),
             new Personne(3, "Troudeau", "Justun", "514-465-4785")
         };
-        }
-
-        [Fact]
-        public void Test1()
-        {
-
         }
     }
 }
