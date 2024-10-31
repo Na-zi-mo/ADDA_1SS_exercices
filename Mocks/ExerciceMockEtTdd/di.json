@@ -1,0 +1,27 @@
+{
+  "defaultAssembly": "ExerciceMockEtTdd",
+  "components": [
+    {
+      "type": "ExerciceMockEtTdd.Views.InteractionUtilisateurGui",
+      "services": [
+        {
+          "type": "ExerciceMockEtTdd.ViewModels.Interfaces.IInteractionUtilisateur"
+        }
+      ]
+    },
+    {
+      "type": "ExerciceMockEtTdd.Models.PersonneSurFichierDataService",
+      "services": [
+        {
+          "type": "ExerciceMockEtTdd.Models.IDataService`1[[ExerciceMockEtTdd.models.Personne]]"
+        }
+      ]
+    },
+    {
+      "type": "ExerciceMockEtTdd.ViewModels.MainViewModel"
+    },
+    {
+      "type": "ExerciceMockEtTdd.ViewModels.PersonneViewModel"
+    }
+  ]
+}
