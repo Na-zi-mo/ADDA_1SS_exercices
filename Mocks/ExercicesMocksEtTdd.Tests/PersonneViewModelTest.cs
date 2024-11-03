@@ -67,6 +67,8 @@ namespace ExercicesMocksEtTdd.Tests
 
             // Affirmation
             Assert.Equal(4, pvm.Personnes.Count());
+            //Personne personneAJoutee = pvm.Personnes[3];
+
         }
 
         [Fact]
@@ -100,7 +102,7 @@ namespace ExercicesMocksEtTdd.Tests
             pvm.SupprimerTout(null);
 
             // Affirmation
-            Assert.Equal(0, pvm.Personnes.Count());
+            Assert.Empty(pvm.Personnes);
         }
 
         [Fact]
@@ -235,6 +237,32 @@ namespace ExercicesMocksEtTdd.Tests
 
             // Affirmation
             Assert.Null(pvm.PersonneSelectionnee);
+        }
+
+
+        [Fact]
+        public void CopierPersonne_ShouldBeCopied()
+        {
+            // Préparation
+            _pDataService.Setup(pds => pds.GetAll()).Returns(ListePersonnesAttendues());
+            _pDataService.Setup(pds => pds.Insert(It.IsAny<Personne>())).Returns(true);
+            // Suite préparation
+            PersonneViewModel pvm = new PersonneViewModel(_interUtilMock.Object, _pDataService.Object);
+
+            pvm.PersonneSelectionnee = new Personne(0, "Massinissa", "Massinissaaa", "819-123-4567");
+
+            pvm.Nom = pvm.PersonneSelectionnee.Nom;
+            pvm.Prenom = pvm.PersonneSelectionnee.Prenom;
+            pvm.Telephone = pvm.PersonneSelectionnee.Telephone;
+
+            // Exécution
+            pvm.CopierPersonne(null);
+
+            // Affirmation
+            Assert.Equal(4, pvm.Personnes.Count());
+            Assert.Equal("Massinissa", pvm.Personnes.Last().Nom);
+            Assert.Equal("Massinissaaa", pvm.Personnes.Last().Prenom);
+            Assert.Equal("819-123-4567", pvm.Personnes.Last().Telephone);
         }
     }
 }

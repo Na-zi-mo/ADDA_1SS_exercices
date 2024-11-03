@@ -37,6 +37,26 @@ namespace ExerciceMockEtTdd.ViewModels
             CmdAnnuler = new RelayCommand(Annuler, null);
             CmdSupprimerPersonne = new RelayCommand(SupprimerPersonne, null);
             CmdSupprimerTout = new RelayCommand(SupprimerTout, null);
+            CmdCopierPersonne = new RelayCommand(CopierPersonne, null);
+        }
+
+        public void CopierPersonne(object? obj)
+        {
+            if (PersonneSelectionnee != null)
+            {
+                try
+                {
+                    Personne personne = new Personne(0, Nom, Prenom, Telephone);
+                    _dsPersonne.Insert(personne);
+                    this.Personnes.Add(personne);
+                    PersonneSelectionnee = null;
+                    InitAjoutModif();
+                }
+                catch (Exception ex)
+                {
+                    _interaction.AfficherMessageErreur(ex.Message);
+                }
+            }
         }
 
         public void AjouterPersonne(object? obj)
@@ -115,6 +135,8 @@ namespace ExerciceMockEtTdd.ViewModels
         public RelayCommand CmdSupprimerPersonne { get; private set; }
 
         public RelayCommand CmdSupprimerTout { get; private set; }
+
+        public RelayCommand CmdCopierPersonne { get; private set; }
 
         public ObservableCollection<Personne> Personnes { get; set; }
 
