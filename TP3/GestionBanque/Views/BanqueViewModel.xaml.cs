@@ -10,7 +10,6 @@ namespace GestionBanque.Views
         public BanqueView()
         {
             InitializeComponent();
-            DataContext = FournisseurDI.Container.Resolve<BanqueViewModel>();
         }
     }
 }
