@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using Autofac;
+using GestionBanque.ViewModels;
+using System.Windows.Controls;
 
 
 namespace GestionBanque.Views
@@ -8,6 +10,7 @@ namespace GestionBanque.Views
         public BanqueView()
         {
             InitializeComponent();
+            DataContext = FournisseurDI.Container.Resolve<BanqueViewModel>();
         }
     }
 }
