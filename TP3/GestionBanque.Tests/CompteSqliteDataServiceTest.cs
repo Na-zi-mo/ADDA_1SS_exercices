@@ -62,5 +62,38 @@ namespace GestionBanque.Tests
             // Assert         
             Assert.Throws<ArgumentOutOfRangeException>(() => compte.Retirer(drawAmount));
         }
+
+        [Fact]
+        [AvantApresDataService(CheminBd)]
+        public void Deposer_ShouldBeValid()
+        {
+            // Arrange
+            CompteSqliteDataService ds = new CompteSqliteDataService(CheminBd);
+            double initialBalance = 300;
+            Compte compte = new Compte(1, "0001", initialBalance, 1);
+            double depositAmount = 100;
+            double expectedBalance = 400;
+
+            // Act
+            compte.Deposer(depositAmount);
+
+            // Assert
+            Assert.Equal(compte.Balance, expectedBalance);
+        }
+
+        [Fact]
+        [AvantApresDataService(CheminBd)]
+        public void Deposer_ShouldNotBeValid()
+        {
+            // Arrange
+            CompteSqliteDataService ds = new CompteSqliteDataService(CheminBd);
+            double initialBalance = 300;
+            Compte compte = new Compte(1, "0001", initialBalance, 1);
+            double depositAmount = -100;
+
+            // Act
+            // Assert         
+            Assert.Throws<ArgumentOutOfRangeException>(() => compte.Deposer(depositAmount));
+        }
     }
 }
