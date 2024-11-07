@@ -55,7 +55,7 @@ namespace GestionBanque.Models
             {
                 if (value == null || value.Trim().Length == 0)
                     throw new ArgumentException("Le nom est non valide.");
-                _nom = value;
+                _nom = value.Trim();
                 OnPropertyChanged();
             }
         }
