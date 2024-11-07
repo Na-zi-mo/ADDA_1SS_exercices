@@ -11,7 +11,7 @@ namespace GestionBanque.Tests
     // bd de tests pendant qu'un test d'une autre classe utilise la bd. Bref, c'est pour éviter un
     // accès concurrent à la BD de tests!
     [Collection("Dataservice")]
-    public  class CompteSqliteDataServiceTest
+    public class CompteSqliteDataServiceTest
     {
         private const string CheminBd = "test.bd";
 
@@ -28,6 +28,39 @@ namespace GestionBanque.Tests
 
             // Affirmation
             Assert.Equal(compteAttendu, compteActuel);
+        }
+
+        [Fact]
+        [AvantApresDataService(CheminBd)]
+        public void Retirer_ShouldBeValid()
+        {
+            // Arrange
+            CompteSqliteDataService ds = new CompteSqliteDataService(CheminBd);
+            double initialBalance = 300;
+            Compte compte = new Compte(1, "0001", initialBalance, 1);
+            double drawAmount = 100;
+            double expectedBalance = 200;
+
+            // Act
+            compte.Retirer(drawAmount);
+
+            // Assert
+            Assert.Equal(compte.Balance, expectedBalance);
+        }
+
+        [Fact]
+        [AvantApresDataService(CheminBd)]
+        public void Retirer_ShouldNotBeValid()
+        {
+            // Arrange
+            CompteSqliteDataService ds = new CompteSqliteDataService(CheminBd);
+            double initialBalance = 300;
+            Compte compte = new Compte(1, "0001", initialBalance, 1);
+            double drawAmount = 400;
+
+            // Act
+            // Assert         
+            Assert.Throws<ArgumentOutOfRangeException>(() => compte.Retirer(drawAmount));
         }
     }
 }
