@@ -106,5 +106,79 @@ namespace GestionBanque.Tests
             // Assert         
             Assert.Throws<ArgumentException>(() => client.Nom = "     ");
         }
+
+
+        [Fact]
+        [AvantApresDataService(CheminBd)]
+        public void SetterPrenom_ShouldBeValid_AlternateCase()
+        {
+            // Préparation
+            ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
+            Client client = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
+            string expectedName = "Tata";
+
+            // Exécution
+            client.Prenom = "  Tata    ";
+
+            // Affirmation
+            Assert.Equal(client.Prenom, expectedName);
+        }
+
+        [Fact]
+        [AvantApresDataService(CheminBd)]
+        public void SetterPrenom_ShouldBeValid_MainCase()
+        {
+            // Préparation
+            ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
+            Client client = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
+            string expectedName = "Tata";
+
+            // Exécution
+            client.Prenom = "Tata";
+
+            // Affirmation
+            Assert.Equal(client.Prenom, expectedName);
+        }
+
+
+        [Fact]
+        [AvantApresDataService(CheminBd)]
+        public void SetterPrenom_ShouldNotBeValid_NullCase()
+        {
+            // Préparation
+            ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
+            Client client = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
+
+            // Act
+            // Assert         
+            Assert.Throws<ArgumentException>(() => client.Prenom = null);
+
+        }
+
+        [Fact]
+        [AvantApresDataService(CheminBd)]
+        public void SetterPrenom_ShouldNotBeValid_EmptyCase_MainCase()
+        {
+            // Préparation
+            ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
+            Client client = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
+
+            // Act
+            // Assert         
+            Assert.Throws<ArgumentException>(() => client.Prenom = "");
+        }
+
+        [Fact]
+        [AvantApresDataService(CheminBd)]
+        public void SetterPrenom_ShouldNotBeValid_EmptyCase_AlternateCase()
+        {
+            // Préparation
+            ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
+            Client client = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
+
+            // Act
+            // Assert         
+            Assert.Throws<ArgumentException>(() => client.Prenom = "     ");
+        }
     }
 }
