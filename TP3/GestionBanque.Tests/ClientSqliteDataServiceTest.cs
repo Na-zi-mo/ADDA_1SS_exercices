@@ -7,7 +7,7 @@ namespace GestionBanque.Tests
 {
     // Ce décorateur s'assure que toutes les classes de tests ayant le tag "Dataservice" soit
     // exécutées séquentiellement. Par défaut, xUnit exécute les différentes suites de tests
-    // en parallèle. Toutefois, si nous voulons forcer l'exécution séquentielle entre certaines
+    // en parallèle. Toutefois, si nous voulons forcer l'Act séquentielle entre certaines
     // suites, nous pouvons utiliser un décorateur avec un nom unique. Pour les tests sur les DataService,
     // il est important que cela soit séquentiel afin d'éviter qu'un test d'une classe supprime la 
     // bd de tests pendant qu'un test d'une autre classe utilise la bd. Bref, c'est pour éviter un
@@ -21,16 +21,16 @@ namespace GestionBanque.Tests
         [AvantApresDataService(CheminBd)]
         public void Get_ShouldBeValid()
         {
-            // Préparation
+            // Arrange
             ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
             Client clientAttendu = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
             clientAttendu.Comptes.Add(new Compte(1, "9864", 831.76, 1));
             clientAttendu.Comptes.Add(new Compte(2, "2370", 493.04, 1));
 
-            // Exécution
+            // Act
             Client? clientActuel = ds.Get(1);
 
-            // Affirmation
+            // Assert
             Assert.Equal(clientAttendu, clientActuel);
         }
 
@@ -38,32 +38,32 @@ namespace GestionBanque.Tests
         [AvantApresDataService(CheminBd)]
         public void SetterNom_ShouldBeValid_AlternateCase()
         {
-            // Préparation
+            // Arrange
             ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
             Client client = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
-            string expectedName = "Toto";
+            string expectedNom = "Toto";
 
-            // Exécution
+            // Act
             client.Nom = "  Toto    ";
 
-            // Affirmation
-            Assert.Equal(client.Nom, expectedName);
+            // Assert
+            Assert.Equal(client.Nom, expectedNom);
         }
 
         [Fact]
         [AvantApresDataService(CheminBd)]
         public void SetterNom_ShouldBeValid_MainCase()
         {
-            // Préparation
+            // Arrange
             ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
             Client client = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
-            string expectedName = "Toto";
+            string expectedNom = "Toto";
 
-            // Exécution
+            // Act
             client.Nom = "Toto";
 
-            // Affirmation
-            Assert.Equal(client.Nom, expectedName);
+            // Assert
+            Assert.Equal(client.Nom, expectedNom);
         }
 
 
@@ -71,7 +71,7 @@ namespace GestionBanque.Tests
         [AvantApresDataService(CheminBd)]
         public void SetterNom_ShouldNotBeValid_NullCase()
         {
-            // Préparation
+            // Arrange
             ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
             Client client = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
 
@@ -85,7 +85,7 @@ namespace GestionBanque.Tests
         [AvantApresDataService(CheminBd)]
         public void SetterNom_ShouldNotBeValid_EmptyCase_MainCase()
         {
-            // Préparation
+            // Arrange
             ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
             Client client = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
             
@@ -98,7 +98,7 @@ namespace GestionBanque.Tests
         [AvantApresDataService(CheminBd)]
         public void SetterNom_ShouldNotBeValid_EmptyCase_AlternateCase()
         {
-            // Préparation
+            // Arrange
             ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
             Client client = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
 
@@ -112,32 +112,32 @@ namespace GestionBanque.Tests
         [AvantApresDataService(CheminBd)]
         public void SetterPrenom_ShouldBeValid_AlternateCase()
         {
-            // Préparation
+            // Arrange
             ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
             Client client = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
-            string expectedName = "Tata";
+            string expectedPrenom = "Tata";
 
-            // Exécution
+            // Act
             client.Prenom = "  Tata    ";
 
-            // Affirmation
-            Assert.Equal(client.Prenom, expectedName);
+            // Assert
+            Assert.Equal(client.Prenom, expectedPrenom);
         }
 
         [Fact]
         [AvantApresDataService(CheminBd)]
         public void SetterPrenom_ShouldBeValid_MainCase()
         {
-            // Préparation
+            // Arrange
             ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
             Client client = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
-            string expectedName = "Tata";
+            string expectedPrenom = "Tata";
 
-            // Exécution
+            // Act
             client.Prenom = "Tata";
 
-            // Affirmation
-            Assert.Equal(client.Prenom, expectedName);
+            // Assert
+            Assert.Equal(client.Prenom, expectedPrenom);
         }
 
 
@@ -145,7 +145,7 @@ namespace GestionBanque.Tests
         [AvantApresDataService(CheminBd)]
         public void SetterPrenom_ShouldNotBeValid_NullCase()
         {
-            // Préparation
+            // Arrange
             ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
             Client client = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
 
@@ -159,7 +159,7 @@ namespace GestionBanque.Tests
         [AvantApresDataService(CheminBd)]
         public void SetterPrenom_ShouldNotBeValid_EmptyCase_MainCase()
         {
-            // Préparation
+            // Arrange
             ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
             Client client = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
 
@@ -172,13 +172,74 @@ namespace GestionBanque.Tests
         [AvantApresDataService(CheminBd)]
         public void SetterPrenom_ShouldNotBeValid_EmptyCase_AlternateCase()
         {
-            // Préparation
+            // Arrange
             ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
             Client client = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
 
             // Act
             // Assert         
             Assert.Throws<ArgumentException>(() => client.Prenom = "     ");
+        }
+
+
+        [Fact]
+        [AvantApresDataService(CheminBd)]
+        public void SetterCourriel_ShouldBeValid_MainCase()
+        {
+            // Arrange
+            ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
+            Client client = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
+            string expectedCourriel = "quentin123@gmail.com";
+
+            // Act
+            client.Courriel = "quentin123@gmail.com";
+
+            // Assert
+            Assert.Equal(client.Courriel, expectedCourriel);
+        }
+
+
+        [Fact]
+        [AvantApresDataService(CheminBd)]
+        public void SetterCourriel_ShouldBeValid_AlternateCase()
+        {
+            // Arrange
+            ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
+            Client client = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
+            string expectedCourriel = "pass@test.test";
+
+            // Act
+            client.Courriel = "    pass@test.test    ";
+
+            // Assert
+            Assert.Equal(client.Courriel, expectedCourriel);
+        }
+
+
+        [Fact]
+        [AvantApresDataService(CheminBd)]
+        public void SetterCourriel_ShouldNotBeValid_NullCase()
+        {
+            // Arrange
+            ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
+            Client client = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
+
+            // Act
+            // Assert         
+            Assert.Throws<ArgumentException>(() => client.Courriel = null);
+        }
+
+        [Fact]
+        [AvantApresDataService(CheminBd)]
+        public void SetterCourriel_ShouldNotBeValid_InvalidEmail()
+        {
+            // Arrange
+            ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
+            Client client = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
+
+            // Act
+            // Assert         
+            Assert.Throws<ArgumentException>(() => client.Courriel = "aaaaa.com");
         }
     }
 }
