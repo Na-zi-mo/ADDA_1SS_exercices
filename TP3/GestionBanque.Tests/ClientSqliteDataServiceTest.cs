@@ -241,5 +241,22 @@ namespace GestionBanque.Tests
             // Assert         
             Assert.Throws<ArgumentException>(() => client.Courriel = "aaaaa.com");
         }
+
+
+        [Fact]
+        [AvantApresDataService(CheminBd)]
+        public void GetAll_ShouldBeValid()
+        {
+            // Arrange
+            ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
+            Client expectedClient = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
+
+            // Act
+            IEnumerable<Client> clients =  ds.GetAll();
+
+            // Assert
+            Assert.Equal(3, clients.Count());
+            Assert.Equivalent(expectedClient, clients.First());
+        }
     }
 }
