@@ -277,5 +277,35 @@ namespace GestionBanque.Tests
             Assert.Equal(2, client.Comptes.Count());
             Assert.Equivalent(comptes, client.Comptes);
         }
+
+
+        [Fact]
+        [AvantApresDataService(CheminBd)]
+        public void Update_ShouldBeUpdated()
+        {
+            // Arrange
+            ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
+            Client client = ds.Get(1);
+            string expectedNom = "Toto";
+            client.Nom = expectedNom;
+
+
+            // Act
+            // Assert         
+            Assert.True(ds.Update(client));
+            Assert.Equal(expectedNom, ds.Get(1).Nom);
+        }
+
+
+        [Fact]
+        [AvantApresDataService(CheminBd)]
+        public void Update_ShouldNotBeUpdated()
+        {
+            // Arrange
+            ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
+            // Act
+            // Assert         
+            Assert.False(ds.Update(new Client(5, "tata", "toto", "aaa@aaa.com")));
+        }
     }
 }
