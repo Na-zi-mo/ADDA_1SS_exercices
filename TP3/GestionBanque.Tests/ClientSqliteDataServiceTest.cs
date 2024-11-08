@@ -258,5 +258,24 @@ namespace GestionBanque.Tests
             Assert.Equal(3, clients.Count());
             Assert.Equivalent(expectedClient, clients.First());
         }
+
+
+        [Fact]
+        [AvantApresDataService(CheminBd)]
+        public void RecupererComptes_ShouldBeValid()
+        {
+            // Arrange
+            ClientSqliteDataService ds = new ClientSqliteDataService(CheminBd);
+            Client client = new Client(1, "Amar", "Quentin", "quentin@gmail.com");
+            List<Compte> comptes = new List<Compte> { new Compte(1, "9864", 831.76, 1), new Compte(2, "2370", 493.04, 1) };
+
+            // Act
+            ds.RecupererComptes(client);
+
+
+            // Assert
+            Assert.Equal(2, client.Comptes.Count());
+            Assert.Equivalent(comptes, client.Comptes);
+        }
     }
 }
