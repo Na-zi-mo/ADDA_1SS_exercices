@@ -161,6 +161,52 @@ namespace GestionBanque.Tests
             Assert.Equal(vieuxCourriel, bvm.Clients.Last().Courriel);
         }
 
+
+        [Fact]
+        public void Retirer_ShouldBeDrew()
+        {
+            // Arrange
+            _clientDataService.Setup(clinetDS => clinetDS.GetAll()).Returns(ListeClientsAttendues);
+            _clientDataService.Setup(clinetDS => clinetDS.Insert(It.IsAny<Client>())).Returns(true);
+            BanqueViewModel bvm = new BanqueViewModel(_interUtilMock.Object, _clientDataService.Object, _compteDataService.Object);
+
+
+            bvm.CompteSelectionne = new Compte(1, "7698", 906.72, 3);
+            bvm.MontantTransaction = 100;
+
+
+            // Act
+            bvm.Retirer(null);
+
+
+            // Assert
+            Assert.Equal(806.72, bvm.CompteSelectionne.Balance);
+            Assert.Equal(0, bvm.MontantTransaction);
+        }
+
+
+        [Fact]
+        public void Retirer_ShouldNotBeDrew()
+        {
+            // Arrange
+            _clientDataService.Setup(clinetDS => clinetDS.GetAll()).Returns(ListeClientsAttendues);
+            _clientDataService.Setup(clinetDS => clinetDS.Insert(It.IsAny<Client>())).Returns(true);
+            BanqueViewModel bvm = new BanqueViewModel(_interUtilMock.Object, _clientDataService.Object, _compteDataService.Object);
+
+
+            bvm.CompteSelectionne = new Compte(1, "7698", 906.72, 3);
+            bvm.MontantTransaction = 1000;
+
+
+            // Act
+            bvm.Retirer(null);
+
+
+            // Assert
+            Assert.Equal(906.72, bvm.CompteSelectionne.Balance);
+            Assert.NotEqual(0, bvm.MontantTransaction);
+        }
+
         private List<Client> ListeClientsAttendues()
         {
             return new List<Client>()
