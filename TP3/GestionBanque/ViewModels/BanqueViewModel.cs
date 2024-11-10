@@ -54,7 +54,8 @@ namespace GestionBanque.ViewModels
                     _dsClients.Update(ClientSelectionne);
                 }
                 catch (Exception ex) 
-                { 
+                {
+                    ClientSelectionne.Nom = vieuxNom;
                     ClientSelectionne.Prenom = vieuxPrenom;
                     ClientSelectionne.Courriel = vieuxCourriel;
                     _interaction.AfficherMessageErreur(ex.Message);

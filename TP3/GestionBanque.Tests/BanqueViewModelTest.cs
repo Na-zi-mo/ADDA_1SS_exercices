@@ -78,6 +78,89 @@ namespace GestionBanque.Tests
             Assert.Null(bvm.ClientSelectionne);
         }
 
+        [Fact]
+        public void Modifier_ShouldBeModified()
+        {
+            // Arrange
+            _clientDataService.Setup(clinetDS => clinetDS.GetAll()).Returns(ListeClientsAttendues);
+            _clientDataService.Setup(clinetDS => clinetDS.Insert(It.IsAny<Client>())).Returns(true);
+            BanqueViewModel bvm = new BanqueViewModel(_interUtilMock.Object, _clientDataService.Object, _compteDataService.Object);
+
+            
+            bvm.ClientSelectionne = bvm.Clients.Last();
+
+            bvm.Nom = "Ziri";
+            bvm.Prenom = "Bouloughine";
+            bvm.Courriel = "ziri@mazghana.dz";
+
+            // Act
+            bvm.Modifier(null);
+
+
+            // Assert
+            Assert.Equal("Ziri", bvm.Clients.Last().Nom);
+            Assert.Equal("Bouloughine", bvm.Clients.Last().Prenom);
+            Assert.Equal("ziri@mazghana.dz", bvm.Clients.Last().Courriel);
+        }
+
+        [Fact]
+        public void Modifier_ShouldNotBeModified()
+        {
+            // Arrange
+            _clientDataService.Setup(clinetDS => clinetDS.GetAll()).Returns(ListeClientsAttendues);
+            _clientDataService.Setup(clinetDS => clinetDS.Insert(It.IsAny<Client>())).Returns(true);
+            BanqueViewModel bvm = new BanqueViewModel(_interUtilMock.Object, _clientDataService.Object, _compteDataService.Object);
+
+
+            bvm.ClientSelectionne = null;
+
+            bvm.Nom = "Ziri";
+            bvm.Prenom = "Bouloughine";
+            bvm.Courriel = "ziri@mazghana.dz";
+
+            // Act
+            bvm.Modifier(null);
+
+
+            // Assert
+            Assert.NotEqual("Ziri", bvm.Clients.Last().Nom);
+            Assert.NotEqual("Bouloughine", bvm.Clients.Last().Prenom);
+            Assert.NotEqual("ziri@mazghana.dz", bvm.Clients.Last().Courriel);
+        }
+
+        [Fact]
+        public void Modifier_ShouldNotBeModified_InvalidAttributes()
+        {
+            // Arrange
+            _clientDataService.Setup(clinetDS => clinetDS.GetAll()).Returns(ListeClientsAttendues);
+            _clientDataService.Setup(clinetDS => clinetDS.Insert(It.IsAny<Client>())).Returns(true);
+            BanqueViewModel bvm = new BanqueViewModel(_interUtilMock.Object, _clientDataService.Object, _compteDataService.Object);
+
+
+            string vieuxNom = bvm.Clients.Last().Nom;
+            string vieuxPrenom = bvm.Clients.Last().Prenom;
+            string vieuxCourriel = bvm.Clients.Last().Courriel;
+
+            bvm.ClientSelectionne = bvm.Clients.Last();
+
+            bvm.Nom = "Ziri";
+            bvm.Prenom = "Bouloughine";
+            bvm.Courriel = "zirimazghana.dz";
+
+            // Act
+            bvm.Modifier(null);
+
+
+            // Assert
+            Assert.NotEqual("Ziri", bvm.Clients.Last().Nom);
+            Assert.NotEqual("Bouloughine", bvm.Clients.Last().Prenom);
+            Assert.NotEqual("ziri@mazghana.dz", bvm.Clients.Last().Courriel);
+
+            Assert.Equal(vieuxNom, bvm.Clients.Last().Nom);
+            Assert.Equal(vieuxPrenom, bvm.Clients.Last().Prenom);
+            Assert.Equal(vieuxCourriel, bvm.Clients.Last().Courriel);
+        }
+
         private List<Client> ListeClientsAttendues()
         {
             return new List<Client>()
