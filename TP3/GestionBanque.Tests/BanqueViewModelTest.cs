@@ -1,5 +1,6 @@
 ﻿using GestionBanque.Models;
 using GestionBanque.Models.DataService;
+using GestionBanque.ViewModels;
 using GestionBanque.ViewModels.Interfaces;
 using Moq;
 using System;
@@ -23,6 +24,34 @@ namespace GestionBanque.Tests
             _interUtilMock.Setup(iu => iu.PoserQuestion(It.IsAny<string>())).Returns(true);
         }
 
+        [Fact]
+        public void Constructeur_ShouldBeValid()
+        {
+            // Arrange
+            _clientDataService.Setup(clinetDS => clinetDS.GetAll()).Returns(ListeClientsAttendues);
+
+            // Act
+            BanqueViewModel bvm = new BanqueViewModel(_interUtilMock.Object, _clientDataService.Object, _compteDataService.Object);
+
+            // Assert
+            Assert.Equal(ListeClientsAttendues().Count(), bvm.Clients.Count());
+            Assert.Equal(ListeClientsAttendues(), bvm.Clients);
+            Assert.Empty(bvm.Nom);
+            Assert.Empty(bvm.Prenom);
+            Assert.Empty(bvm.Courriel);
+            Assert.Null(bvm.CompteSelectionne);
+            Assert.Null(bvm.ClientSelectionne);
+        }
+
+        private List<Client> ListeClientsAttendues()
+        {
+            return new List<Client>()
+            {
+                new Client(1, "Amar", "Quentin", "quentin@gmail.com"),
+                new Client(2, "Agère", "Tex", "tex@gmail.com"),
+                new Client(3, "Vigote", "Sarah", "sarah@gmail.com")
+            };
+        }
 
     }
 }
