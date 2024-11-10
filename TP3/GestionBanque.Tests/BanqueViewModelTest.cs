@@ -163,7 +163,7 @@ namespace GestionBanque.Tests
 
 
         [Fact]
-        public void Retirer_ShouldBeDrew()
+        public void Retirer_ShouldBeWithdrew()
         {
             // Arrange
             _clientDataService.Setup(clinetDS => clinetDS.GetAll()).Returns(ListeClientsAttendues);
@@ -186,7 +186,7 @@ namespace GestionBanque.Tests
 
 
         [Fact]
-        public void Retirer_ShouldNotBeDrew()
+        public void Retirer_ShouldNotBeWithdrew()
         {
             // Arrange
             _clientDataService.Setup(clinetDS => clinetDS.GetAll()).Returns(ListeClientsAttendues);
@@ -200,6 +200,51 @@ namespace GestionBanque.Tests
 
             // Act
             bvm.Retirer(null);
+
+
+            // Assert
+            Assert.Equal(906.72, bvm.CompteSelectionne.Balance);
+            Assert.NotEqual(0, bvm.MontantTransaction);
+        }
+
+        [Fact]
+        public void Deposer_ShouldBeDeposited()
+        {
+            // Arrange
+            _clientDataService.Setup(clinetDS => clinetDS.GetAll()).Returns(ListeClientsAttendues);
+            _clientDataService.Setup(clinetDS => clinetDS.Insert(It.IsAny<Client>())).Returns(true);
+            BanqueViewModel bvm = new BanqueViewModel(_interUtilMock.Object, _clientDataService.Object, _compteDataService.Object);
+
+
+            bvm.CompteSelectionne = new Compte(1, "7698", 906.72, 3);
+            bvm.MontantTransaction = 100;
+
+
+            // Act
+            bvm.Deposer(null);
+
+
+            // Assert
+            Assert.Equal(1006.72, bvm.CompteSelectionne.Balance);
+            Assert.Equal(0, bvm.MontantTransaction);
+        }
+
+
+        [Fact]
+        public void Deposer_ShouldNotBeDeposited()
+        {
+            // Arrange
+            _clientDataService.Setup(clinetDS => clinetDS.GetAll()).Returns(ListeClientsAttendues);
+            _clientDataService.Setup(clinetDS => clinetDS.Insert(It.IsAny<Client>())).Returns(true);
+            BanqueViewModel bvm = new BanqueViewModel(_interUtilMock.Object, _clientDataService.Object, _compteDataService.Object);
+
+
+            bvm.CompteSelectionne = new Compte(1, "7698", 906.72, 3);
+            bvm.MontantTransaction = -1000;
+
+
+            // Act
+            bvm.Deposer(null);
 
 
             // Assert
