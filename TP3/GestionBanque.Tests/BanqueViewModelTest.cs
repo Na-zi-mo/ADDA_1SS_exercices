@@ -43,6 +43,41 @@ namespace GestionBanque.Tests
             Assert.Null(bvm.ClientSelectionne);
         }
 
+        [Fact]
+        public void SetterClientSelectionne_ShouldBeSelected()
+        {
+            // Arrange
+            _clientDataService.Setup(clinetDS => clinetDS.GetAll()).Returns(ListeClientsAttendues);
+            _clientDataService.Setup(clinetDS => clinetDS.Insert(It.IsAny<Client>())).Returns(true);
+            BanqueViewModel bvm = new BanqueViewModel(_interUtilMock.Object, _clientDataService.Object, _compteDataService.Object);
+
+            // Act
+            bvm.ClientSelectionne = bvm.Clients.First();
+
+
+            // Assert
+            Assert.NotNull(bvm.ClientSelectionne);
+            Assert.NotEmpty(bvm.Nom);
+            Assert.NotEmpty(bvm.Prenom);
+            Assert.NotEmpty(bvm.Courriel);
+        }
+
+        [Fact]
+        public void SetterClientSelectionne_ShouldNotBeSelected()
+        {
+            // Arrange
+            _clientDataService.Setup(clinetDS => clinetDS.GetAll()).Returns(ListeClientsAttendues);
+            _clientDataService.Setup(clinetDS => clinetDS.Insert(It.IsAny<Client>())).Returns(true);
+            BanqueViewModel bvm = new BanqueViewModel(_interUtilMock.Object, _clientDataService.Object, _compteDataService.Object);
+
+            // Act
+            bvm.ClientSelectionne = null;
+
+
+            // Assert
+            Assert.Null(bvm.ClientSelectionne);
+        }
+
         private List<Client> ListeClientsAttendues()
         {
             return new List<Client>()

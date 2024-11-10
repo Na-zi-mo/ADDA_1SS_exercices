@@ -112,6 +112,7 @@ namespace GestionBanque.ViewModels
                 _clientSelectionne = value;
                 Nom = value?.Nom ?? string.Empty;
                 Prenom = value?.Prenom ?? string.Empty;
+                Courriel = value?.Courriel ?? string.Empty;
                 OnPropertyChanged();
             }
         }
