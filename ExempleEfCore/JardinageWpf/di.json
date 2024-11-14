@@ -1,0 +1,19 @@
+{
+  "defaultAssembly": "JardinageWpf",
+  "components": [
+    {
+      "type": "JardinageWpf.Views.InteractionUtilisateurGui",
+      "services": [
+        {
+          "type": "JardinageWpf.ViewModels.Interfaces.IInteractionUtilisateur"
+        }
+      ]
+    },
+    {
+      "type": "JardinageWpf.ViewModels.JardinageViewModel"
+    },
+    {
+      "type": "JardinageWpf.ViewModels.MainViewModel"
+    }
+  ]
+}
