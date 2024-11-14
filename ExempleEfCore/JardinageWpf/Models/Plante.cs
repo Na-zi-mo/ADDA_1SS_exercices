@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace JardinageWpf.Models
 {
@@ -10,47 +13,56 @@ namespace JardinageWpf.Models
         private double _hauteur;
         private Famille _famille;
 
+        [Key]
         public int Id { get; set; }
 
+        [Required]
         public string NomCommun
         {
             get { return _nomCommun; }
-            set 
+            set
             {
-                if (value == null || value.Length == 0) 
+                if (value == null || value.Length == 0)
                     throw new ArgumentException("Nom commun de la plante non valide.");
-                _nomCommun = value; 
+                _nomCommun = value;
             }
         }
 
+        [Required]
         public string NomScientifique
         {
             get { return _nomScientifique; }
-            set 
+            set
             {
                 if (value == null || value.Length == 0)
                     throw new ArgumentException("Nom scientifique de la plante non valide.");
-                _nomScientifique = value; 
+                _nomScientifique = value;
             }
         }
 
+        [Required]
         public double Hauteur
         {
             get { return _hauteur; }
-            set 
-            { 
+            set
+            {
                 if (value <= 0)
                     throw new ArgumentException("La hauteur de la plante doit être supérieure à 0.");
-                _hauteur = value; 
+                _hauteur = value;
             }
         }
 
-        public Famille Famille 
+        [Required]
+        public int FamilleId { get; set; }
+
+        [ForeignKey("FamilleId")]
+        [DeleteBehavior(DeleteBehavior.Restrict)]
+        public Famille Famille
         {
             get { return _famille; }
             set
-            { 
-                if (value == null) 
+            {
+                if (value == null)
                     throw new ArgumentException("La famille est obligatoire.");
                 _famille = value;
             }
