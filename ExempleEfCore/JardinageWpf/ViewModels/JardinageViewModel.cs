@@ -1,9 +1,11 @@
-﻿using JardinageWpf.Models;
+﻿using JardinageWpf.DataService.Repositories.Interfaces;
+using JardinageWpf.Models;
 using JardinageWpf.ViewModels.Commands;
 using JardinageWpf.ViewModels.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace JardinageWpf.ViewModels
 {
@@ -17,18 +19,27 @@ namespace JardinageWpf.ViewModels
         private Famille? _familleSelectionnee;
         private SelectionDeRegions _selectionDeRegions;
 
-        public JardinageViewModel(IInteractionUtilisateur interaction) : base(interaction)
+        private IRegionRepository _regionRepository;
+        private IFamilleRepository _familleRepository;
+        private IPlanteRepository _planteRepository;
+
+        public JardinageViewModel(IInteractionUtilisateur interaction,
+            IRegionRepository regionRepository,
+            IFamilleRepository familleRepository,
+            IPlanteRepository planteRepository) : base(interaction)
         {
-            Plantes = new ObservableCollection<Plante>();
-            Regions = new ObservableCollection<Region>();
-            Familles = new ObservableCollection<Famille>();
+            _regionRepository = regionRepository;
+            _familleRepository = familleRepository;
+            _planteRepository = planteRepository;
 
-            CommandeAjouter = new RelayCommand(Ajouter, null);
+            Plantes = new ObservableCollection<Plante>(_planteRepository.GetAll());
+            Regions = new ObservableCollection<Region>(_regionRepository.GetAll());
+            Familles = new ObservableCollection<Famille>(_familleRepository.GetAll());
+
+            CommandeAjouter = new AsyncCommand(Ajouter, null);
             CommandeNouvellePlante = new RelayCommand(NouvellePlante, null);
-            CommandeModifier = new RelayCommand(Modifier, CanExecuteModifierSupprimer);
-            CommandeSupprimer = new RelayCommand(Supprimer, CanExecuteModifierSupprimer);
-
-            Seed();
+            CommandeModifier = new AsyncCommand(Modifier, CanExecuteModifierSupprimer);
+            CommandeSupprimer = new AsyncCommand(Supprimer, CanExecuteModifierSupprimer);
 
             SelectionDeRegions = new SelectionDeRegions(new List<Region>(), Regions);
         }
@@ -38,19 +49,20 @@ namespace JardinageWpf.ViewModels
             PlanteSelectionnee = null;
         }
 
-        private void Ajouter(object? obj)
+        private async Task Ajouter(object? obj)
         {
             try
             {
                 Plante nvllePlante = new Plante
                 {
-                    Id = 0,
+                    //Id = 0,
                     NomCommun = NomCommun,
                     NomScientifique = NomScientifique,
                     Hauteur = Hauteur,
                     Famille = FamilleSelectionnee,
                     Regions = SelectionDeRegions.GetRegionsSelectionnees()
                 };
+                await _planteRepository.AddAsync(nvllePlante);
                 Plantes.Add(nvllePlante);
                 PlanteSelectionnee = nvllePlante;
                 _interaction.AfficherMessageInfo("Plante ajoutée avec succès!");
@@ -61,7 +73,7 @@ namespace JardinageWpf.ViewModels
             }
         }
 
-        private void Modifier(object? obj)
+        private async Task Modifier(object? obj)
         {
             if (PlanteSelectionnee != null)
             {
@@ -77,6 +89,7 @@ namespace JardinageWpf.ViewModels
                     PlanteSelectionnee.Hauteur = Hauteur;
                     PlanteSelectionnee.Famille = FamilleSelectionnee;
                     PlanteSelectionnee.Regions = SelectionDeRegions.GetRegionsSelectionnees();
+                    await _planteRepository.UpdateAsync(PlanteSelectionnee);
                     _interaction.AfficherMessageInfo("Plante modifiée avec succès!");
                 }
                 catch (Exception ex)
@@ -91,10 +104,11 @@ namespace JardinageWpf.ViewModels
             }
         }
 
-        private void Supprimer(object? obj)
+        private async Task Supprimer(object? obj)
         {
             if (PlanteSelectionnee != null && _interaction.PoserQuestion("Voulez-vous vraiment supprimer la plante?"))
             {
+                await _planteRepository.DeleteAsync(PlanteSelectionnee);
                 Plantes.Remove(PlanteSelectionnee);
                 _interaction.AfficherMessageInfo("Plante supprimée avec succès!");
             }
@@ -109,10 +123,10 @@ namespace JardinageWpf.ViewModels
         public ObservableCollection<Region> Regions { get; set; }
         public ObservableCollection<Famille> Familles { get; set; }
 
-        public RelayCommand CommandeAjouter { get; set; }
+        public AsyncCommand CommandeAjouter { get; set; }
         public RelayCommand CommandeNouvellePlante { get; set; }
-        public RelayCommand CommandeModifier { get; set; }
-        public RelayCommand CommandeSupprimer { get; set; }
+        public AsyncCommand CommandeModifier { get; set; }
+        public AsyncCommand CommandeSupprimer { get; set; }
 
         public Plante? PlanteSelectionnee
         {
@@ -121,13 +135,15 @@ namespace JardinageWpf.ViewModels
             {
                 _planteSelectionnee = value;
 
-                NomCommun = value?.NomCommun ?? "";
-                NomScientifique = value?.NomScientifique ?? "";
-                Hauteur = value?.Hauteur ?? 0;
-                FamilleSelectionnee = value?.Famille ?? null;
-                SelectionDeRegions = new SelectionDeRegions(value?.Regions ?? new List<Region>(), Regions);
+                if (value != null) _planteSelectionnee = _planteRepository.Get(value.Id);
 
-                ModeAjout = value == null;
+                NomCommun = _planteSelectionnee?.NomCommun ?? "";
+                NomScientifique = _planteSelectionnee?.NomScientifique ?? "";
+                Hauteur = _planteSelectionnee?.Hauteur ?? 0;
+                FamilleSelectionnee = _planteSelectionnee?.Famille ?? null;
+                SelectionDeRegions = new SelectionDeRegions(_planteSelectionnee?.Regions ?? new List<Region>(), Regions);
+
+                ModeAjout = _planteSelectionnee == null;
                 OnPropertyChanged();
             }
         }
@@ -190,34 +206,6 @@ namespace JardinageWpf.ViewModels
                 _selectionDeRegions = value;
                 OnPropertyChanged();
             }
-        }
-
-        private void Seed()
-        {
-            Famille f1 = new Famille { Id = 1, Nom = "Graminé" };
-            Famille f2 = new Famille { Id = 2, Nom = "Orchidé" };
-            Famille f3 = new Famille { Id = 3, Nom = "Labié" };
-            Familles.Add(f1);
-            Familles.Add(f2);
-            Familles.Add(f3);
-
-            Region r1 = new Region { Id = 1, Nom = "Désertique" };
-            Region r2 = new Region { Id = 2, Nom = "Aride" };
-            Region r3 = new Region { Id = 3, Nom = "Tempéré" };
-            Regions.Add(r1);
-            Regions.Add(r2);
-            Regions.Add(r3);
-
-            Plante p1 = new Plante { Id = 1, Hauteur = 20, NomCommun = "Pissenlit", NomScientifique = "Taraxacum officinale F.H. Wigg.", Famille = f1 };
-            p1.Regions.Add(r1);
-            p1.Regions.Add(r3);
-            Plante p2 = new Plante { Id = 2, Hauteur = 50, NomCommun = "Blé", NomScientifique = "Triticum turgidum ssp. durum", Famille = f1 };
-            p2.Regions.Add(r2);
-            Plante p3 = new Plante { Id = 3, Hauteur = 20, NomCommun = "Orchidée papillon", NomScientifique = "Phalaenopsis", Famille = f2 };
-            p3.Regions.Add(r1);
-            Plantes.Add(p1);
-            Plantes.Add(p2);
-            Plantes.Add(p3);
         }
     }
 }
