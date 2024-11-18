@@ -34,7 +34,8 @@
       ]
     },
     {
-      "type": "JardinageWpf.DataService.SqliteJardinageDbContext",
+      //"type": "JardinageWpf.DataService.SqliteJardinageDbContext",
+      "type": "JardinageWpf.DataService.MysqlJardinageDbContext",
       "services": [
         {
           "type": "JardinageWpf.DataService.JardinageDbContext"
