@@ -1,0 +1,53 @@
+{
+  "defaultAssembly": "JardinageWpf",
+  "components": [
+    {
+      "type": "JardinageWpf.Views.InteractionUtilisateurGui",
+      "services": [
+        {
+          "type": "JardinageWpf.ViewModels.Interfaces.IInteractionUtilisateur"
+        }
+      ]
+    },
+    {
+      "type": "JardinageWpf.DataService.Repositories.Database.FamilleDatabaseRepository",
+      "services": [
+        {
+          "type": "JardinageWpf.DataService.Repositories.Interfaces.IFamilleRepository"
+        }
+      ]
+    },
+    {
+      "type": "JardinageWpf.DataService.Repositories.Database.RegionDatabaseRepository",
+      "services": [
+        {
+          "type": "JardinageWpf.DataService.Repositories.Interfaces.IRegionRepository"
+        }
+      ]
+    },
+    {
+      "type": "JardinageWpf.DataService.Repositories.Database.PlanteDatabaseRepository",
+      "services": [
+        {
+          "type": "JardinageWpf.DataService.Repositories.Interfaces.IPlanteRepository"
+        }
+      ]
+    },
+    {
+      //"type": "JardinageWpf.DataService.SqliteJardinageDbContext",
+      "type": "JardinageWpf.DataService.MysqlJardinageDbContext",
+      "services": [
+        {
+          "type": "JardinageWpf.DataService.JardinageDbContext"
+        }
+      ],
+      "instanceScope": "single-instance"
+    },
+    {
+      "type": "JardinageWpf.ViewModels.JardinageViewModel"
+    },
+    {
+      "type": "JardinageWpf.ViewModels.MainViewModel"
+    }
+  ]
+}
