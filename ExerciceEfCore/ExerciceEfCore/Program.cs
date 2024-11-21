@@ -13,7 +13,8 @@ namespace ExerciceEfCore
         {
             try
             {
-                SqliteBlogDbContext context = new SqliteBlogDbContext();
+                //SqliteBlogDbContext context = new SqliteBlogDbContext();
+                MysqlBlogDbContext context = new MysqlBlogDbContext();
                 context.Database.Migrate();
 
                 IBlogRepository bRepo = new BlogDatabaseRepository(context);
