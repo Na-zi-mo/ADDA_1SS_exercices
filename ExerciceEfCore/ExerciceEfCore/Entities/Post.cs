@@ -19,7 +19,7 @@ namespace ExerciceEfCore.Entities
         public int BlogId { get; set; }
 
         [ForeignKey("BlogId")]
-        [DeleteBehavior(DeleteBehavior.Restrict)]
+        [DeleteBehavior(DeleteBehavior.Cascade)]
         public Blog Blog { get; set; }
 
         public override string ToString()

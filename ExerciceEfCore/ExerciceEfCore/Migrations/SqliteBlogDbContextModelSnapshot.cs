@@ -63,7 +63,7 @@ namespace ExerciceEfCore.Migrations
                     b.HasOne("ExerciceEfCore.Entities.Blog", "Blog")
                         .WithMany("Posts")
                         .HasForeignKey("BlogId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Blog");

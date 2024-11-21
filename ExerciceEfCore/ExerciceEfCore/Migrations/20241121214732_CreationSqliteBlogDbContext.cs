@@ -5,7 +5,7 @@
 namespace ExerciceEfCore.Migrations
 {
     /// <inheritdoc />
-    public partial class CreationInitialeBdSqlite : Migration
+    public partial class CreationSqliteBlogDbContext : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -41,7 +41,7 @@ namespace ExerciceEfCore.Migrations
                         column: x => x.BlogId,
                         principalTable: "Blogs",
                         principalColumn: "BlogId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

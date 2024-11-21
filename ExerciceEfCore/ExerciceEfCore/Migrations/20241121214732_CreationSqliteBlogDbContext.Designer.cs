@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExerciceEfCore.Migrations
 {
     [DbContext(typeof(SqliteBlogDbContext))]
-    [Migration("20241118151936_CreationInitialeBdSqlite")]
-    partial class CreationInitialeBdSqlite
+    [Migration("20241121214732_CreationSqliteBlogDbContext")]
+    partial class CreationSqliteBlogDbContext
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -66,7 +66,7 @@ namespace ExerciceEfCore.Migrations
                     b.HasOne("ExerciceEfCore.Entities.Blog", "Blog")
                         .WithMany("Posts")
                         .HasForeignKey("BlogId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Blog");
