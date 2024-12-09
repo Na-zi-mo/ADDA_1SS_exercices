@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TP4.Views"
         mc:Ignorable="d"
+        Icon="/Resources/cloud_weather.ico"
         Title="MainView" Height="450" Width="800">
     <Grid>
         
