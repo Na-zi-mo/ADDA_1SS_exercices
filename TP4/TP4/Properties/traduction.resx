@@ -120,6 +120,15 @@
   <data name="app_title" xml:space="preserve">
     <value>Météo</value>
   </data>
+  <data name="button_cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="button_save" xml:space="preserve">
+    <value>Sauver</value>
+  </data>
+  <data name="lbl_language" xml:space="preserve">
+    <value>*Langue :</value>
+  </data>
   <data name="lbl_latitude" xml:space="preserve">
     <value>Latitude :</value>
   </data>
@@ -129,7 +138,13 @@
   <data name="lbl_region" xml:space="preserve">
     <value>Région</value>
   </data>
+  <data name="lbl_token" xml:space="preserve">
+    <value>Jeton :</value>
+  </data>
   <data name="menu_configuration" xml:space="preserve">
     <value>Configuration</value>
+  </data>
+  <data name="restart_message" xml:space="preserve">
+    <value>Les paramètres marqués d'une * nécessitent un redémarrage de l'application.</value>
   </data>
 </root>

@@ -70,6 +70,33 @@ namespace TP4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Annuler.
+        /// </summary>
+        public static string button_cancel {
+            get {
+                return ResourceManager.GetString("button_cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sauver.
+        /// </summary>
+        public static string button_save {
+            get {
+                return ResourceManager.GetString("button_save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to *Langue :.
+        /// </summary>
+        public static string lbl_language {
+            get {
+                return ResourceManager.GetString("lbl_language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Latitude :.
         /// </summary>
         public static string lbl_latitude {
@@ -97,11 +124,29 @@ namespace TP4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Jeton :.
+        /// </summary>
+        public static string lbl_token {
+            get {
+                return ResourceManager.GetString("lbl_token", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configuration.
         /// </summary>
         public static string menu_configuration {
             get {
                 return ResourceManager.GetString("menu_configuration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Les paramètres marqués d&apos;une * nécessitent un redémarrage de l&apos;application..
+        /// </summary>
+        public static string restart_message {
+            get {
+                return ResourceManager.GetString("restart_message", resourceCulture);
             }
         }
     }

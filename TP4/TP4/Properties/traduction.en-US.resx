@@ -120,6 +120,15 @@
   <data name="app_title" xml:space="preserve">
     <value>Weather</value>
   </data>
+  <data name="button_cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="button_save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="lbl_language" xml:space="preserve">
+    <value>*Language :</value>
+  </data>
   <data name="lbl_latitude" xml:space="preserve">
     <value>Latitude :</value>
   </data>
@@ -129,7 +138,13 @@
   <data name="lbl_region" xml:space="preserve">
     <value>Region :</value>
   </data>
+  <data name="lbl_token" xml:space="preserve">
+    <value>Token :</value>
+  </data>
   <data name="menu_configuration" xml:space="preserve">
     <value>Configuration</value>
+  </data>
+  <data name="restart_message" xml:space="preserve">
+    <value>Settings with an asterisk need to restart the app.</value>
   </data>
 </root>

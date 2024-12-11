@@ -9,6 +9,7 @@
         Icon="/Resources/cloud_weather.ico"
         Title="{x:Static p:traduction.menu_configuration}" Height="350" Width="300">
     <Grid>
-        
+        <Label Content="Label" HorizontalAlignment="Left" Margin="122,35,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>
