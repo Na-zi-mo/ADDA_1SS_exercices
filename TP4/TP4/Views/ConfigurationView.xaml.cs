@@ -11,20 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using TP4.ViewModels;
 
 namespace TP4.Views
 {
     /// <summary>
-    /// Interaction logic for MainView.xaml
+    /// Interaction logic for ConfigurationView.xaml
     /// </summary>
-    public partial class MainView : Window
+    public partial class ConfigurationView : Window
     {
-        public MainView()
+        public ConfigurationView()
         {
             InitializeComponent();
-            InteractionUtilisateurGui iug = new InteractionUtilisateurGui();
-            DataContext = new MainViewModel(iug);
         }
     }
 }

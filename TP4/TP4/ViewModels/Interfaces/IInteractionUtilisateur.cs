@@ -8,6 +8,6 @@ namespace TP4.ViewModels.Interfaces
 {
     public interface IInteractionUtilisateur
     {
-        
+        public void OpenConfigurationWindow();
     }
 }

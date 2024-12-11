@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TP4.Views"
         xmlns:viewmodels="clr-namespace:TP4.ViewModels"
+        xmlns:p="clr-namespace:TP4.Properties"
         mc:Ignorable="d"
         Icon="/Resources/cloud_weather.ico"
-        Title="MainView" Height="450" Width="800">
+        Title="{x:Static p:traduction.app_title}" Height="450" Width="800" Name="win" >
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewmodels:MeteoViewModel}">
             <local:MeteoView/>
@@ -16,7 +17,14 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+
         </Grid.RowDefinitions>
-        <ContentControl Grid.Row="0" Content="{Binding ViewModelActuel}" Margin="0, 0, 0, 0" />
+
+        <Menu Width="{Binding ElementName=win, Path=Width}">
+            <MenuItem Header="{x:Static p:traduction.menu_configuration}" Command="{Binding OpenConfigurationWindowCmd}" />
+        </Menu>
+
+        <ContentControl Grid.Row="1" Content="{Binding ViewModelActuel}" Margin="0, 0, 0, 0" />
     </Grid>
 </Window>

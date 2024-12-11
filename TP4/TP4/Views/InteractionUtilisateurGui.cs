@@ -10,5 +10,10 @@ namespace TP4.Views
 {
     public class InteractionUtilisateurGui : IInteractionUtilisateur
     {
+        public void OpenConfigurationWindow()
+        {
+            ConfigurationView configView = new ConfigurationView();
+            configView.ShowDialog();
+        }
     }
 }

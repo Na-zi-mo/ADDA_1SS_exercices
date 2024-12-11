@@ -61,11 +61,29 @@ namespace TP4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Météo.
+        /// </summary>
+        public static string app_title {
+            get {
+                return ResourceManager.GetString("app_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Région.
         /// </summary>
         public static string lbl_region {
             get {
                 return ResourceManager.GetString("lbl_region", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configuration.
+        /// </summary>
+        public static string menu_configuration {
+            get {
+                return ResourceManager.GetString("menu_configuration", resourceCulture);
             }
         }
     }
