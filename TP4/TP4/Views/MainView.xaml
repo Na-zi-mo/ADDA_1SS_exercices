@@ -4,10 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TP4.Views"
+        xmlns:viewmodels="clr-namespace:TP4.ViewModels"
         mc:Ignorable="d"
         Icon="/Resources/cloud_weather.ico"
         Title="MainView" Height="450" Width="800">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:MeteoViewModel}">
+            <local:MeteoView/>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ContentControl Grid.Row="0" Content="{Binding ViewModelActuel}" Margin="0, 0, 0, 0" />
     </Grid>
 </Window>
