@@ -9,6 +9,11 @@ namespace TP4
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            string langue = TP4.Properties.Settings.Default.langue;
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(langue);
+        }
     }
 
 }
