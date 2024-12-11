@@ -15,5 +15,10 @@ namespace TP4.Views
             ConfigurationView configView = new ConfigurationView();
             configView.ShowDialog();
         }
+
+        public void CloseConfigurationWindow()
+        {
+            Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.Title == TP4.Properties.traduction.menu_configuration)?.Close();
+        }
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TP4.ViewModels;
 
 namespace TP4.Views
 {
@@ -22,6 +23,8 @@ namespace TP4.Views
         public ConfigurationView()
         {
             InitializeComponent();
+            InteractionUtilisateurGui iug = new InteractionUtilisateurGui();
+            DataContext = new ConfigurationViewModel(iug);
         }
     }
 }
