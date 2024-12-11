@@ -70,6 +70,24 @@ namespace TP4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Latitude :.
+        /// </summary>
+        public static string lbl_latitude {
+            get {
+                return ResourceManager.GetString("lbl_latitude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Longitude :.
+        /// </summary>
+        public static string lbl_longitude {
+            get {
+                return ResourceManager.GetString("lbl_longitude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Région.
         /// </summary>
         public static string lbl_region {

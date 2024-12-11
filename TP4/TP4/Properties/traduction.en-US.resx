@@ -120,8 +120,14 @@
   <data name="app_title" xml:space="preserve">
     <value>Weather</value>
   </data>
+  <data name="lbl_latitude" xml:space="preserve">
+    <value>Latitude :</value>
+  </data>
+  <data name="lbl_longitude" xml:space="preserve">
+    <value>Longitude :</value>
+  </data>
   <data name="lbl_region" xml:space="preserve">
-    <value>Region</value>
+    <value>Region :</value>
   </data>
   <data name="menu_configuration" xml:space="preserve">
     <value>Configuration</value>
