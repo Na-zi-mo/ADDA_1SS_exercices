@@ -126,6 +126,9 @@
   <data name="button_save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="empty_region_message" xml:space="preserve">
+    <value>Region's name is mandatory.</value>
+  </data>
   <data name="error_empty_token" xml:space="preserve">
     <value>Please set the API token in the configuration before making a request.</value>
   </data>

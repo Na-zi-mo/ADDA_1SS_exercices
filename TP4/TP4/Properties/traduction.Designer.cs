@@ -88,6 +88,15 @@ namespace TP4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Le nom de la région est obligatoire..
+        /// </summary>
+        public static string empty_region_message {
+            get {
+                return ResourceManager.GetString("empty_region_message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Veuillez configuer le jeton de l&apos;API dans la configuration avant de faire une requête..
         /// </summary>
         public static string error_empty_token {

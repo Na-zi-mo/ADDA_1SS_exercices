@@ -33,7 +33,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="{x:Static p:traduction.lbl_region}" VerticalAlignment="Center" />
-                <TextBox HorizontalAlignment="Right" Grid.Column="1" Margin="5,0,0,0" TextWrapping="Wrap" Text="{Binding Region}" VerticalAlignment="Center" Width="155" />
+                <TextBox HorizontalAlignment="Right" Grid.Column="1" Margin="5,0,0,0" TextWrapping="Wrap" Text="{Binding Region, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="155" />
             </Grid>
 
             <Grid Margin="10,10,10,10">
@@ -42,7 +42,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="{x:Static p:traduction.lbl_latitude}" VerticalAlignment="Center" />
-                <TextBox HorizontalAlignment="Right" Grid.Column="1" Margin="5,0,0,0" TextWrapping="Wrap" Text="{Binding Latitude}" VerticalAlignment="Center" Width="156" />
+                <TextBox HorizontalAlignment="Right" Grid.Column="1" Margin="5,0,0,0" TextWrapping="Wrap" Text="{Binding Latitude, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="156" />
             </Grid>
 
             <Grid Margin="10,10,10,10">
@@ -51,10 +51,10 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="{x:Static p:traduction.lbl_longitude}" VerticalAlignment="Center" />
-                <TextBox HorizontalAlignment="Right" Grid.Column="1" Margin="5,0,0,0" TextWrapping="Wrap" Text="{Binding Longitude}" VerticalAlignment="Center" Width="156" />
+                <TextBox HorizontalAlignment="Right" Grid.Column="1" Margin="5,0,0,0" TextWrapping="Wrap" Text="{Binding Longitude, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="156" />
             </Grid>
 
-            <Button Content="+" HorizontalAlignment="Center" VerticalAlignment="Top" Height="22" Width="39"/>
+            <Button Content="+" Command="{Binding AjouterRegionCmd}" HorizontalAlignment="Center" VerticalAlignment="Top" Height="22" Width="39"/>
         </StackPanel>
 
 

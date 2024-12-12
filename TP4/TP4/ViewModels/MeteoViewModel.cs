@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Reflection.Metadata;
 using System.Windows;
 using TP4.ViewModels.Commands;
+using System.Windows.Controls;
 
 namespace TP4.ViewModels
 {
@@ -45,7 +46,23 @@ namespace TP4.ViewModels
 
         public void Ajouter(object? obj)
         {
+            try
+            {
+                string error_messages = string.Empty;
 
+                if (Region == string.Empty || Region is null)
+                    error_messages += $"{TP4.Properties.traduction.empty_region_message}\n";
+
+
+              
+                if (error_messages != string.Empty)
+                    throw new Exception(error_messages);
+            }
+            catch (Exception e)
+            {
+
+                _interaction.ShowErrorMessage(e.Message);
+            }
         }
 
         private async Task GatherPrevisions(Region region)
