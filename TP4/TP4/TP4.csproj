@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <Folder Include="DataService\Repositories\Database\" />
-    <Folder Include="DataService\Repositories\Interfaces\" />
   </ItemGroup>
 
   <ItemGroup>
