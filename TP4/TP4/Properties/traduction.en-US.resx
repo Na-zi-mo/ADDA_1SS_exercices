@@ -156,6 +156,12 @@
   <data name="menu_configuration" xml:space="preserve">
     <value>Configuration</value>
   </data>
+  <data name="out_of_range_latitude" xml:space="preserve">
+    <value>Latitude must be between -180 and 180.</value>
+  </data>
+  <data name="out_of_range_longitude" xml:space="preserve">
+    <value>Longitude must be between -180 and 180.</value>
+  </data>
   <data name="restart_message" xml:space="preserve">
     <value>Settings with an asterisk need to restart the app.</value>
   </data>

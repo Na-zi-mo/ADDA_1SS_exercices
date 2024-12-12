@@ -50,12 +50,6 @@ namespace TP4.Migrations
                     { 16, 33.803600000000003, 2.8828999999999998, "Laghouat" },
                     { 17, 22.785, 5.5228000000000002, "Tamanrasset" }
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Regions_Nom",
-                table: "Regions",
-                column: "Nom",
-                unique: true);
         }
 
         /// <inheritdoc />

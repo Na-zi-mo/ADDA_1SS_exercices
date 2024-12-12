@@ -10,7 +10,7 @@ using TP4.DataService;
 namespace TP4.Migrations
 {
     [DbContext(typeof(SqliteMeteoDbContext))]
-    [Migration("20241212064522_CreationInitialeBdSqlite")]
+    [Migration("20241212181309_CreationInitialeBdSqlite")]
     partial class CreationInitialeBdSqlite
     {
         /// <inheritdoc />
@@ -36,9 +36,6 @@ namespace TP4.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Nom")
-                        .IsUnique();
 
                     b.ToTable("Regions");
 

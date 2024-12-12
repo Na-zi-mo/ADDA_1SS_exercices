@@ -169,6 +169,24 @@ namespace TP4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to La latitude doit être comprise entre -180 et 180..
+        /// </summary>
+        public static string out_of_range_latitude {
+            get {
+                return ResourceManager.GetString("out_of_range_latitude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La longitude doit être comprise entre -180 et 180..
+        /// </summary>
+        public static string out_of_range_longitude {
+            get {
+                return ResourceManager.GetString("out_of_range_longitude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Les paramètres marqués d&apos;une * nécessitent un redémarrage de l&apos;application..
         /// </summary>
         public static string restart_message {

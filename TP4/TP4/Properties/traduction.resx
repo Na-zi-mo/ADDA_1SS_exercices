@@ -153,6 +153,12 @@
   <data name="menu_configuration" xml:space="preserve">
     <value>Configuration</value>
   </data>
+  <data name="out_of_range_latitude" xml:space="preserve">
+    <value>La latitude doit être comprise entre -180 et 180.</value>
+  </data>
+  <data name="out_of_range_longitude" xml:space="preserve">
+    <value>La longitude doit être comprise entre -180 et 180.</value>
+  </data>
   <data name="restart_message" xml:space="preserve">
     <value>Les paramètres marqués d'une * nécessitent un redémarrage de l'application.</value>
   </data>

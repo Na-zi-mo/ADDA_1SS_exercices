@@ -41,22 +41,17 @@ namespace TP4.ViewModels
             
             Regions = new ObservableCollection<Region>(_regionRepository.GetAll());
 
-            AjouterRegionCmd = new RelayCommand(Ajouter, null);
+            AjouterRegionCmd = new AsyncCommand(Ajouter, null);
         }
 
-        public void Ajouter(object? obj)
+        public async Task Ajouter(object? obj)
         {
             try
             {
-                string error_messages = string.Empty;
+                Region newRegion = new Region(Region, Longitude, Latitude);
 
-                if (Region == string.Empty || Region is null)
-                    error_messages += $"{TP4.Properties.traduction.empty_region_message}\n";
+                Regions.Add(await _regionRepository.AddAsync(newRegion));
 
-
-              
-                if (error_messages != string.Empty)
-                    throw new Exception(error_messages);
             }
             catch (Exception e)
             {
@@ -197,7 +192,7 @@ namespace TP4.ViewModels
         public ObservableCollection<Region> Regions { get; set; }
 
 
-        public RelayCommand AjouterRegionCmd { get; private set; }
+        public AsyncCommand AjouterRegionCmd { get; private set; }
 
     }
 }

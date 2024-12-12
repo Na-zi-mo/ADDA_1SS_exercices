@@ -34,9 +34,6 @@ namespace TP4.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Nom")
-                        .IsUnique();
-
                     b.ToTable("Regions");
 
                     b.HasData(
