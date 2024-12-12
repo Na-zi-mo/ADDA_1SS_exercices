@@ -16,7 +16,14 @@ namespace TP4.DataService.Repositories.Database
         public async Task<Region?> GetAsync(int id)
         {
             return await _context.Regions
-                .FindAsync(id);
+                .FirstOrDefaultAsync(p=> p.Id ==id);
+        }
+        public Region? Get(int id) => _context.Regions
+                .FirstOrDefault(p => p.Id == id);
+
+        public List<Region> GetAll()
+        {
+            return _context.Regions.ToList();
         }
 
         public async Task<List<Region>> GetAllAsync()
@@ -37,6 +44,6 @@ namespace TP4.DataService.Repositories.Database
             _context.Regions.Remove(region);
             await _context.SaveChangesAsync();
             return true;
-        }        
+        }
     }
 }

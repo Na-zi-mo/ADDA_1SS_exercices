@@ -132,6 +132,9 @@
   <data name="lbl_latitude" xml:space="preserve">
     <value>Latitude :</value>
   </data>
+  <data name="lbl_latitude_short" xml:space="preserve">
+    <value>Lat</value>
+  </data>
   <data name="lbl_longitude" xml:space="preserve">
     <value>Longitude :</value>
   </data>

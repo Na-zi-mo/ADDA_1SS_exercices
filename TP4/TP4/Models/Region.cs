@@ -35,6 +35,10 @@ namespace TP4.Models
             return HashCode.Combine(Id, Nom);
         }
 
-        public override string ToString() => Nom;
+        public override string ToString() 
+        {
+            return $"{Nom}\nLat: {Latitude}\nLon: {Longitude}";
+        }
+        
     }
 }

@@ -15,9 +15,9 @@ namespace TP4.ViewModels
 
 
 
-        public MainViewModel(IInteractionUtilisateur interaction) : base(interaction)
+        public MainViewModel(IInteractionUtilisateur interaction, MeteoViewModel meteoViewModel) : base(interaction)
         {
-            _meteoViewModel = new MeteoViewModel(interaction);
+            _meteoViewModel = meteoViewModel;
             _viewModelActuel = _meteoViewModel;
             OpenConfigurationWindowCmd = new RelayCommand(OpenConfiguration, null);
         }
