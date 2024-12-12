@@ -22,7 +22,7 @@
         <TextBox HorizontalAlignment="Left" Margin="86,290,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156"/>
         <Button Content="+" HorizontalAlignment="Left" Margin="113,329,0,0" VerticalAlignment="Top" Height="22" Width="39"/>
 
-        <ListView ItemsSource="{Binding Previsions}" Margin="273,30,10,34">
+        <ListView ItemsSource="{Binding Previsions}" Margin="268,86,10,34">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
@@ -34,12 +34,15 @@
                             <TextBlock VerticalAlignment="Center" Text="{Binding max_temp, StringFormat=Max:  {0} °C}"></TextBlock>
                             <TextBlock VerticalAlignment="Center" Text="{Binding min_temp, StringFormat=Min:  {0} °C}"></TextBlock>
                         </StackPanel>
-                        
-                        
+
+
                     </WrapPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListView>
+        <TextBlock FontSize="24" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="342,11,0,0" TextWrapping="Wrap" Text="{Binding NomVille}" VerticalAlignment="Top" Width="198" Height="32"/>
+        <Button Content="X" HorizontalAlignment="Left" Margin="549,25,0,0" VerticalAlignment="Top" Height="23" Width="17" Visibility="{Binding IsDeleteVisisble}"/>
+        <TextBlock FontSize="10" HorizontalAlignment="Left" Margin="432,48,0,0" TextWrapping="Wrap" Text="{Binding CodePays}" VerticalAlignment="Top" RenderTransformOrigin="0.061,0.146" Width="44"/>
 
 
     </Grid>

@@ -10,6 +10,7 @@ using TP4.ViewModels.Interfaces;
 using Newtonsoft.Json;
 using System.Windows.Media.Imaging;
 using System.Reflection.Metadata;
+using System.Windows;
 
 namespace TP4.ViewModels
 {
@@ -19,6 +20,7 @@ namespace TP4.ViewModels
         private Region _regionSelectionnee;
         private ObservableCollection<Prevision>? _previsions;
 
+        private Visibility isDeleteVisisble = Visibility.Hidden;
         private string nomVille;
         private string codePays;
 
@@ -91,10 +93,18 @@ namespace TP4.ViewModels
                 if (value != null)
                 {
                     _regionSelectionnee = _regionRepository.Get(value.Id);
+                    IsDeleteVisisble = Visibility.Visible;
                     GatherPrevisions(_regionSelectionnee);
+                    OnPropertyChanged();
                 }
             }
             
+        }
+
+        public Visibility IsDeleteVisisble
+        {
+            get { return isDeleteVisisble; }
+            set { isDeleteVisisble = value; OnPropertyChanged(); }
         }
 
         public string NomVille
