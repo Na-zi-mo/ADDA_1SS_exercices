@@ -129,6 +129,9 @@
   <data name="error_empty_token" xml:space="preserve">
     <value>Veuillez configuer le jeton de l'API dans la configuration avant de faire une requête.</value>
   </data>
+  <data name="invalid_api_token_message" xml:space="preserve">
+    <value>Assurez-vous que votre jeton API est valide et actif.</value>
+  </data>
   <data name="lbl_language" xml:space="preserve">
     <value>*Langue :</value>
   </data>

@@ -97,6 +97,15 @@ namespace TP4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Assurez-vous que votre jeton API est valide et actif..
+        /// </summary>
+        public static string invalid_api_token_message {
+            get {
+                return ResourceManager.GetString("invalid_api_token_message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to *Langue :.
         /// </summary>
         public static string lbl_language {

@@ -32,6 +32,10 @@ namespace TP4.Models
         public async Task<string> RequeteGetAsync(string endpoint)
         {
             HttpResponseMessage hrm = await _httpClient.GetAsync(_urlBaseApi + endpoint);
+
+            if (hrm.StatusCode == System.Net.HttpStatusCode.Forbidden)
+                throw new Exception($"{TP4.Properties.traduction.invalid_api_token_message}");
+
             return await hrm.Content.ReadAsStringAsync();
         }
 

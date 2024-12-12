@@ -129,6 +129,9 @@
   <data name="error_empty_token" xml:space="preserve">
     <value>Please set the API token in the configuration before making a request.</value>
   </data>
+  <data name="invalid_api_token_message" xml:space="preserve">
+    <value>Make sure your API Token is valid and active.</value>
+  </data>
   <data name="lbl_language" xml:space="preserve">
     <value>*Language :</value>
   </data>

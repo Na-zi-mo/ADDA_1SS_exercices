@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using System.Windows.Media.Imaging;
 using System.Reflection.Metadata;
 using System.Windows;
+using TP4.ViewModels.Commands;
 
 namespace TP4.ViewModels
 {
@@ -38,6 +39,13 @@ namespace TP4.ViewModels
             _regionRepository = regionRepository;          
             
             Regions = new ObservableCollection<Region>(_regionRepository.GetAll());
+
+            AjouterRegionCmd = new RelayCommand(Ajouter, null);
+        }
+
+        public void Ajouter(object? obj)
+        {
+
         }
 
         private async Task GatherPrevisions(Region region)
@@ -170,6 +178,9 @@ namespace TP4.ViewModels
         }
 
         public ObservableCollection<Region> Regions { get; set; }
+
+
+        public RelayCommand AjouterRegionCmd { get; private set; }
 
     }
 }
