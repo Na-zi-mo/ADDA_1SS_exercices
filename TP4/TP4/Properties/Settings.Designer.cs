@@ -46,5 +46,23 @@ namespace TP4.Properties {
                 this["langue"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("meteo.db")]
+        public string nomBdSqlite {
+            get {
+                return ((string)(this["nomBdSqlite"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;port=3306;database=jardinage;userid=dev;password=dev123; ")]
+        public string chaineConnexionMysql {
+            get {
+                return ((string)(this["chaineConnexionMysql"]));
+            }
+        }
     }
 }
