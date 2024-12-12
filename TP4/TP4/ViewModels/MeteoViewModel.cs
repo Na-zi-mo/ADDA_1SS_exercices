@@ -21,10 +21,14 @@ namespace TP4.ViewModels
         private ObservableCollection<Prevision>? _previsions;
 
         private Visibility isDeleteVisisble = Visibility.Hidden;
-        private string nomVille;
-        private string codePays;
+        private string _nomVille;
+        private string _codePays;
 
+        private string _region;
+        private double _latitude;
+        private double _longitude;
 
+       
         private IRegionRepository _regionRepository;
 
 
@@ -109,12 +113,12 @@ namespace TP4.ViewModels
 
         public string NomVille
         {
-            get { return nomVille; }
+            get { return _nomVille; }
             set
             {
                 if (value != null)
                 {
-                    nomVille = value;
+                    _nomVille = value;
                     OnPropertyChanged();
                 }
             }
@@ -123,16 +127,46 @@ namespace TP4.ViewModels
 
         public string CodePays
         {
-            get { return codePays; }
+            get { return _codePays; }
             set
             {
                 if (value != null)
                 {
-                    codePays = value;
+                    _codePays = value;
                     OnPropertyChanged();
                 }
             }
 
+        }
+
+        public string Region
+        {
+            get { return _region; }
+            set
+            {
+                _region = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public double Latitude
+        {
+            get { return _latitude; }
+            set
+            {
+                _latitude = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public double Longitude
+        {
+            get { return _longitude; }
+            set
+            {
+                _longitude = value;
+                OnPropertyChanged();
+            }
         }
 
         public ObservableCollection<Region> Regions { get; set; }
