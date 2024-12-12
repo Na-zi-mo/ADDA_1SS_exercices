@@ -21,7 +21,7 @@
 
         </Grid.RowDefinitions>
 
-        <Menu Width="{Binding ElementName=win, Path=Width}">
+        <Menu Width="{Binding ElementName=win, Path=ActualWidth}">
             <MenuItem Header="{x:Static p:traduction.menu_configuration}" Command="{Binding OpenConfigurationWindowCmd}" />
         </Menu>
 
