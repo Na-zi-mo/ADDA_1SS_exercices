@@ -20,5 +20,11 @@ namespace TP4.Views
         {
             Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.Title == TP4.Properties.traduction.menu_configuration)?.Close();
         }
+
+        public void ShowErrorMessage(string message)
+        {
+            MessageBox.Show(message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
     }
 }

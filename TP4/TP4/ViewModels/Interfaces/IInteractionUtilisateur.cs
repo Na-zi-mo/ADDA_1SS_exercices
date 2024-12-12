@@ -10,5 +10,6 @@ namespace TP4.ViewModels.Interfaces
     {
         public void OpenConfigurationWindow();
         public void CloseConfigurationWindow();
+        public void ShowErrorMessage(string message);   
     }
 }

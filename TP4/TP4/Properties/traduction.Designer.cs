@@ -88,6 +88,15 @@ namespace TP4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Veuillez configuer le jeton de l&apos;API dans la configuration avant de faire une requête..
+        /// </summary>
+        public static string error_empty_token {
+            get {
+                return ResourceManager.GetString("error_empty_token", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to *Langue :.
         /// </summary>
         public static string lbl_language {
