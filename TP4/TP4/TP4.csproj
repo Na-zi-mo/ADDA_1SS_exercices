@@ -9,10 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DataService\Repositories\Database\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Properties\AutresRessources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
