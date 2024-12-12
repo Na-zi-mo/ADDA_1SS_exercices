@@ -87,4 +87,8 @@
     <Resource Include="Resources\cloud_weather.ico" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>
