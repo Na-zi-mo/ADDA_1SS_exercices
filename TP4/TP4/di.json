@@ -1,0 +1,39 @@
+{
+  "defaultAssembly": "TP4",
+  "components": [
+    {
+      "type": "TP4.Views.InteractionUtilisateurGui",
+      "services": [
+        {
+          "type": "TP4.ViewModels.Interfaces.IInteractionUtilisateur"
+        }
+      ]
+    },
+    {
+      "type": "TP4.DataService.Repositories.Database.RegionDatabaseRepository",
+      "services": [
+        {
+          "type": "TP4.DataService.Repositories.Interfaces.IRegionRepository"
+        }
+      ]
+    },
+    {
+      "type": "TP4.DataService.SqliteMeteoDbContext",
+      "services": [
+        {
+          "type": "TP4.DataService.MeteoDbContext"
+        }
+      ],
+      "instanceScope": "single-instance"
+    },
+    {
+      "type": "TP4.ViewModels.MeteoViewModel"
+    },
+    {
+      "type": "TP4.ViewModels.MainViewModel"
+    },
+    {
+      "type": "TP4.ViewModels.ConfigurationViewModel"
+    }
+  ]
+}

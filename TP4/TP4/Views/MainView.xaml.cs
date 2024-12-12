@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autofac;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,8 +24,7 @@ namespace TP4.Views
         public MainView()
         {
             InitializeComponent();
-            InteractionUtilisateurGui iug = new InteractionUtilisateurGui();
-            DataContext = new MainViewModel(iug);
+            DataContext = FournisseurDI.Container.Resolve<MainViewModel>();
         }
     }
 }
