@@ -74,10 +74,17 @@ namespace TP4.ViewModels
         {
             try
             {
-                Region newRegion = new Region(Region, Longitude, Latitude);
 
-                Regions.Add(await _regionRepository.AddAsync(newRegion));
+                Region newRegion = await _regionRepository.AddAsync(new Region(Region, Longitude, Latitude));
 
+                Regions.Add(newRegion);
+
+                _interaction.ShowInformationMessage(TP4.Properties.traduction.add_succeded);
+
+                Region = string.Empty;
+                Longitude = 0;
+                Latitude = 0;
+                
             }
             catch (Exception e)
             {

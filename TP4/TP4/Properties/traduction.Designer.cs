@@ -61,6 +61,15 @@ namespace TP4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to La région a été ajoutée avec succès..
+        /// </summary>
+        public static string add_succeded {
+            get {
+                return ResourceManager.GetString("add_succeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Météo.
         /// </summary>
         public static string app_title {
