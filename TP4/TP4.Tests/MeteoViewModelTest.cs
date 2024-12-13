@@ -1,6 +1,6 @@
 namespace TP4.Tests
 {
-    public class UnitTest1
+    public class MeteoViewModelTest
     {
         [Fact]
         public void Test1()
