@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>cloud_weather.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -67,6 +68,10 @@
 
   <ItemGroup>
     <EditorConfigFiles Remove="D:\_data\DSS\ADDA_1SS_exercices\TP4\TP4\Properties\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="cloud_weather.ico" />
   </ItemGroup>
 
   <ItemGroup>
