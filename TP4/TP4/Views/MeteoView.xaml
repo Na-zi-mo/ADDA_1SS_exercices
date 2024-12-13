@@ -58,35 +58,40 @@
         </StackPanel>
 
 
-        <StackPanel Grid.Column="1" Grid.RowSpan="2">
-            <WrapPanel HorizontalAlignment="Center">
+        <Grid Grid.Column="1" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <WrapPanel Grid.Row="0" HorizontalAlignment="Center">
                 <StackPanel>
-                    <TextBlock FontSize="24" FlowDirection="RightToLeft" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding NomVille}" VerticalAlignment="Top" Width="198" Height="32"/>
-                    <TextBlock FontSize="10" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding CodePays}" VerticalAlignment="Top" RenderTransformOrigin="0.061,0.146" Width="44"/>
+                    <TextBlock FontSize="24" FlowDirection="LeftToRight" HorizontalAlignment="Left" 
+                       TextWrapping="Wrap" Text="{Binding NomVille}" VerticalAlignment="Top" Width="auto" Height="32"/>
+                    <TextBlock FontSize="10" HorizontalAlignment="Left" TextWrapping="Wrap" 
+                       Text="{Binding CodePays}" VerticalAlignment="Top" Width="44"/>
                 </StackPanel>
-                <Button Content="X" Command="{Binding SupprimerRegionCmd}" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="23" Width="17" Visibility="{Binding IsDeleteVisisble, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <Button Content="X" Command="{Binding SupprimerRegionCmd}" HorizontalAlignment="Left" 
+                VerticalAlignment="Top" Height="23" Width="17" 
+                Visibility="{Binding IsDeleteVisisble, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
             </WrapPanel>
 
-            <ListView ItemsSource="{Binding Previsions}" MinHeight="300" MaxHeight="{Binding ElementName=win, Path=ActualHeight}" Margin="10,10,10,10">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <WrapPanel>
-                        <TextBlock VerticalAlignment="Center" Text="{Binding valid_date}" Margin="10,10,10,10"></TextBlock>
+            <ListView Grid.Row="1" ItemsSource="{Binding Previsions}" Margin="10">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock VerticalAlignment="Center" Text="{Binding valid_date}" Margin="10,10,10,10"/>
+                            <Image Source="{Binding image}" Width="100" Height="100" VerticalAlignment="Center" Margin="10,10,10,10"/>
+                            <StackPanel VerticalAlignment="Center" Margin="10,10,10,10">
+                                <TextBlock VerticalAlignment="Center" Text="{Binding max_temp, StringFormat=Max:  {0} °C}"/>
+                                <TextBlock VerticalAlignment="Center" Text="{Binding min_temp, StringFormat=Min:  {0} °C}"/>
+                            </StackPanel>
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
 
-                        <Image Source="{Binding image}" Width="100" Height="100" VerticalAlignment="Center" Margin="10,10,10,10"/>
-
-                        <StackPanel VerticalAlignment="Center" Margin="10,10,10,10">
-                            <TextBlock VerticalAlignment="Center" Text="{Binding max_temp, StringFormat=Max:  {0} °C}"></TextBlock>
-                            <TextBlock VerticalAlignment="Center" Text="{Binding min_temp, StringFormat=Min:  {0} °C}"></TextBlock>
-                        </StackPanel>
-
-
-                    </WrapPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListView>
-        
-        </StackPanel>
 
     </Grid>
 </UserControl>
