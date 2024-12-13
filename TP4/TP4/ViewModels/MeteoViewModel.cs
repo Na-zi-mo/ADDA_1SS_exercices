@@ -63,6 +63,11 @@ namespace TP4.ViewModels
                 {
                     _interaction.ShowInformationMessage(TP4.Properties.traduction.delete_succeded);
                     Regions.Remove(RegionSelectionnee);
+
+                    Previsions = null;
+                    NomVille = string.Empty;
+                    CodePays = string.Empty;
+                    IsDeleteVisisble = Visibility.Hidden;
                 }
 
             }

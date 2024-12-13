@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TP4.Views"
              xmlns:p="clr-namespace:TP4.Properties"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="White">
+             d:DesignHeight="450" d:DesignWidth="800" Background="White" Name="win">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -64,10 +64,10 @@
                     <TextBlock FontSize="24" FlowDirection="RightToLeft" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding NomVille}" VerticalAlignment="Top" Width="198" Height="32"/>
                     <TextBlock FontSize="10" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding CodePays}" VerticalAlignment="Top" RenderTransformOrigin="0.061,0.146" Width="44"/>
                 </StackPanel>
-                <Button Content="X" Command="{Binding SupprimerRegionCmd}" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="23" Width="17" Visibility="{Binding IsDeleteVisisble}"/>
+                <Button Content="X" Command="{Binding SupprimerRegionCmd}" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="23" Width="17" Visibility="{Binding IsDeleteVisisble, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
             </WrapPanel>
 
-            <ListView ItemsSource="{Binding Previsions}" MinHeight="300" Margin="10,10,10,10">
+            <ListView ItemsSource="{Binding Previsions}" MinHeight="300" MaxHeight="{Binding ElementName=win, Path=ActualHeight}" Margin="10,10,10,10">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
