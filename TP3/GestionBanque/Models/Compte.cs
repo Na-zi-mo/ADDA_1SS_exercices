@@ -18,7 +18,7 @@ namespace GestionBanque.Models
 
         public void Retirer(double montant)
         {
-            if (montant > Balance)
+            if (montant > Balance || montant < 0)
             {
                 throw new ArgumentOutOfRangeException($"Montant non valide pour le retrait : {montant}");
             }
@@ -33,7 +33,7 @@ namespace GestionBanque.Models
                 throw new ArgumentOutOfRangeException($"Montant non valide pour le dépôt : {montant}");
             }
 
-            Balance -= montant;
+            Balance += montant;
         }
 
         public long Id { get; set; }

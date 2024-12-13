@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using Autofac;
+using GestionBanque.ViewModels;
+using System.Windows.Controls;
 
 
 namespace GestionBanque.Views
