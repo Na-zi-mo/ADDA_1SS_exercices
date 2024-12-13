@@ -88,6 +88,24 @@ namespace TP4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Veuillez sélectionner une région d&apos;abord..
+        /// </summary>
+        public static string delete_null_region_error {
+            get {
+                return ResourceManager.GetString("delete_null_region_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La région a été supprimée avec succès..
+        /// </summary>
+        public static string delete_succeded {
+            get {
+                return ResourceManager.GetString("delete_succeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Le nom de la région est obligatoire..
         /// </summary>
         public static string empty_region_message {

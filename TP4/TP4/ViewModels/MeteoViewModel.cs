@@ -13,6 +13,7 @@ using System.Reflection.Metadata;
 using System.Windows;
 using TP4.ViewModels.Commands;
 using System.Windows.Controls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TP4.ViewModels
 {
@@ -42,6 +43,31 @@ namespace TP4.ViewModels
             Regions = new ObservableCollection<Region>(_regionRepository.GetAll());
 
             AjouterRegionCmd = new AsyncCommand(Ajouter, null);
+            SupprimerRegionCmd = new AsyncCommand(Supprimer, (object? parameter) =>
+            {
+                return (RegionSelectionnee != null);
+            });
+        }
+
+        public async Task Supprimer(object? obj)
+        {
+            try
+            {
+                if (RegionSelectionnee is null)
+                    throw new Exception(TP4.Properties.traduction.delete_null_region_error);
+
+                if (await _regionRepository.DeleteAsync(RegionSelectionnee))
+                {
+                    _interaction.ShowInformationMessage(TP4.Properties.traduction.delete_succeded);
+                    Regions.Remove(RegionSelectionnee);
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                _interaction.ShowErrorMessage(e.Message);
+            }
         }
 
         public async Task Ajouter(object? obj)
@@ -193,6 +219,7 @@ namespace TP4.ViewModels
 
 
         public AsyncCommand AjouterRegionCmd { get; private set; }
+        public AsyncCommand SupprimerRegionCmd { get; private set; }
 
     }
 }

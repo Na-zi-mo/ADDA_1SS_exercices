@@ -64,7 +64,7 @@
                     <TextBlock FontSize="24" FlowDirection="RightToLeft" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding NomVille}" VerticalAlignment="Top" Width="198" Height="32"/>
                     <TextBlock FontSize="10" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding CodePays}" VerticalAlignment="Top" RenderTransformOrigin="0.061,0.146" Width="44"/>
                 </StackPanel>
-                <Button Content="X" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="23" Width="17" Visibility="{Binding IsDeleteVisisble}"/>
+                <Button Content="X" Command="{Binding SupprimerRegionCmd}" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="23" Width="17" Visibility="{Binding IsDeleteVisisble}"/>
             </WrapPanel>
 
             <ListView ItemsSource="{Binding Previsions}" MinHeight="300" Margin="10,10,10,10">

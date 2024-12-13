@@ -126,6 +126,12 @@
   <data name="button_save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="delete_null_region_error" xml:space="preserve">
+    <value>You must select a region first.</value>
+  </data>
+  <data name="delete_succeded" xml:space="preserve">
+    <value>Region deleted successfully.</value>
+  </data>
   <data name="empty_region_message" xml:space="preserve">
     <value>Region's name is mandatory.</value>
   </data>
