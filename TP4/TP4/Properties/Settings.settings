@@ -11,8 +11,5 @@
     <Setting Name="nomBdSqlite" Type="System.String" Scope="Application">
       <Value Profile="(Default)">meteo.db</Value>
     </Setting>
-    <Setting Name="chaineConnexionMysql" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">server=localhost;port=3306;database=jardinage;userid=dev;password=dev123; </Value>
-    </Setting>
   </Settings>
 </SettingsFile>

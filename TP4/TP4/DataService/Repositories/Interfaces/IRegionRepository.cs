@@ -10,8 +10,6 @@ namespace TP4.DataService.Repositories.Interfaces
 {
     public interface IRegionRepository
     {
-        Task<Region?> GetAsync(int id);
-        Region Get(int id);
         List<Region> GetAll();
 
         Task<List<Region>> GetAllAsync();

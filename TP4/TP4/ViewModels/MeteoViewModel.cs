@@ -33,14 +33,17 @@ namespace TP4.ViewModels
 
        
         private IRegionRepository _regionRepository;
+        private ApiClient _apiClient;
 
 
 
-        public MeteoViewModel(IInteractionUtilisateur interaction, IRegionRepository regionRepository) : base(interaction)
+        public MeteoViewModel(IInteractionUtilisateur interaction, IRegionRepository regionRepository, ApiClient apiClient) : base(interaction)
         {
             _regionRepository = regionRepository;          
             
             Regions = new ObservableCollection<Region>(_regionRepository.GetAll());
+
+            _apiClient = apiClient;
 
             AjouterRegionCmd = new AsyncCommand(Ajouter, null);
             SupprimerRegionCmd = new AsyncCommand(Supprimer, (object? parameter) =>
@@ -100,9 +103,7 @@ namespace TP4.ViewModels
                 if (TP4.Properties.Settings.Default.token == string.Empty || TP4.Properties.Settings.Default.token is null)
                     throw new Exception(TP4.Properties.traduction.error_empty_token);
 
-                ApiClient client = new ApiClient("https://api.weatherbit.io/v2.0/forecast/daily");
-
-                string json = await client.RequeteGetAsync($"?key={TP4.Properties.Settings.Default.token}&days=7&lat={region.Latitude}&lon={region.Longitude}");
+                string json = await _apiClient.RequeteGetAsync($"?key={TP4.Properties.Settings.Default.token}&days=7&lat={region.Latitude}&lon={region.Longitude}");
 
                 Meteo meteo = JsonConvert.DeserializeObject<Meteo>(json) ?? new Meteo();
 
@@ -121,8 +122,6 @@ namespace TP4.ViewModels
                 NomVille = meteo.city_name;
                 CodePays = meteo.country_code;
 
-
-                client.Dispose();
             }
             catch (Exception e)
             {
@@ -149,7 +148,7 @@ namespace TP4.ViewModels
             {
                 if (value != null)
                 {
-                    _regionSelectionnee = _regionRepository.Get(value.Id);
+                    _regionSelectionnee = value;
                     IsDeleteVisisble = Visibility.Visible;
                     GatherPrevisions(_regionSelectionnee);
                     OnPropertyChanged();

@@ -13,14 +13,6 @@ namespace TP4.DataService.Repositories.Database
     {
         public RegionDatabaseRepository(MeteoDbContext context) : base(context) { }
 
-        public async Task<Region?> GetAsync(int id)
-        {
-            return await _context.Regions
-                .FirstOrDefaultAsync(p=> p.Id ==id);
-        }
-        public Region? Get(int id) => _context.Regions
-                .FirstOrDefault(p => p.Id == id);
-
         public List<Region> GetAll()
         {
             return _context.Regions.ToList();

@@ -43,6 +43,11 @@ namespace TP4.Models
         {
             _httpClient.Dispose();
         }
+
+        ~ApiClient() { 
+        
+            if (_httpClient != null) _httpClient.Dispose();
+        }
     }
 
 }
